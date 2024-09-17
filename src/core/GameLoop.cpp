@@ -1,38 +1,14 @@
-/**
- * 
- */
-class GameLoop
-{
-    private:
-        
-    public:
-    
-        GameLoop() {
+#include "core/GameLoop.h"
 
-        }
+bool GameLoop::init() {
+    return true;
+}
 
-        ~GameLoop() {
+void GameLoop::run() {
 
-        }
+}
 
-        /**
-         * Entry point to game
-         */
-        bool init() {
+void GameLoop::stop(){
 
-        }
+}
 
-        /**
-         * General iteration method
-         */
-        void run() {
-
-        }
-
-        /**
-         * Stop engine work
-         */
-        void stop(){
-
-        }
-};

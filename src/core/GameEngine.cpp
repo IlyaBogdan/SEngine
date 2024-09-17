@@ -1,38 +1,13 @@
-/**
- * 
- */
-class GameEngine
-{
-    private:
-        
-    public:
-    
-        GameEngine() {
+#include "core/GameEngine.h"
 
-        }
+bool GameEngine::init() {
+    return true;
+}
 
-        ~GameEngine() {
+void GameEngine::run() {
 
-        }
+}
 
-        /**
-         * Entry point to game
-         */
-        bool init() {
+void GameEngine::stop() {
 
-        }
-
-        /**
-         * General iteration method
-         */
-        void run() {
-
-        }
-
-        /**
-         * Stop engine work
-         */
-        void stop(){
-
-        }
-};
+}

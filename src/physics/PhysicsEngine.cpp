@@ -17,7 +17,7 @@ class PhysicsEngine
         /**
          * Add collider to object
          */
-        void addCollider(Collider collider) {
+        void addCollider() {
             
         }
 

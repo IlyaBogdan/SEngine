@@ -18,7 +18,7 @@ class Renderer
         /**
          * Render scene
          */
-        void render(Scene scene) {
+        void render() {
 
         }
 

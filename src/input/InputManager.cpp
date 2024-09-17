@@ -1,46 +1,21 @@
-#include "./InputAdapter.h"
+#include "input/InputManager.h"
 
-/**
- * Manage all inputs from controllers
- */
-class InputManager
-{
-    private:
-        InputAdapter adapter;
-        
-    public:
+InputManager::InputManager() {
 
-        InputManager() {
+}
 
-        }
+InputManager::~InputManager() {
 
-        ~InputManager() {
+}
 
-        }
+bool InputManager::getKeyState() {
+    return true;
+}
 
-        /**
-         * Check keyboard button state
-         * @param 
-         * @returns bool
-         */
-        bool getKeyState() {
-            
-        }
+int InputManager::getMousePosition() {
+    return 1;
+}
 
-        /**
-         * Return mouse position
-         * @returns bool
-         */
-        int getMousePosition() {
-
-        }
-
-        /**
-         * Check if button pressed
-         * @param 
-         * @returns bool
-         */
-        bool isButtonPressed() {
-
-        }
-};
+bool InputManager::isButtonPressed() {
+    return true;
+}

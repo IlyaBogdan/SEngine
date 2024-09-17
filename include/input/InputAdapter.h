@@ -6,12 +6,7 @@ class InputAdapter
     private:
         
     public:
-        InputAdapter() {
-
-        }
-
-        ~InputAdapter() {
-            
-        }
+        InputAdapter();
+        ~InputAdapter();
 };
 
