@@ -8,14 +8,27 @@ class PCInputManager : InputManager
     private:
         /* data */
     public:
-        PCInputManager(/* args */);
+        PCInputManager();
         ~PCInputManager();
+
+        /**
+         * Check keyboard button state
+         * @param 
+         * @returns bool
+         */
+        virtual bool getKeyState();
+
+        /**
+         * Return mouse position
+         * @returns bool
+         */
+        virtual int getMousePosition();
+
+        /**
+         * Check if button pressed
+         * @param 
+         * @returns bool
+         */
+        virtual bool isButtonPressed();
 };
 
-PCInputManager::PCInputManager(/* args */)
-{
-}
-
-PCInputManager::~PCInputManager()
-{
-}
