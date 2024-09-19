@@ -1,4 +1,5 @@
-#include "input/InputAdapter.h"
+#include "input/controlls/InputState.hpp"
+#include "input/InputAdapter.hpp"
 
 /**
  * Manage all inputs from controllers
@@ -7,6 +8,11 @@ class InputManager
 {
     private:
         InputAdapter adapter;
+
+        /**
+         * Return info about controlls state
+         */
+        InputState getState();
         
     public:
 

@@ -1,4 +1,4 @@
-#include "input/InputAdapter.h"
+#include "input/InputAdapter.hpp"
 #include "systemType.h"
 #include <conio.h>
 #include <string>
