@@ -8,5 +8,10 @@ class InputAdapter
     public:
         InputAdapter();
         ~InputAdapter();
+
+        /**
+         * Get pressed keyboard button
+         */
+        int getch();
 };
 
