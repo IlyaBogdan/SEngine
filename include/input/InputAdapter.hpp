@@ -2,16 +2,14 @@
  * Multiplatform input adapter
  */
 class InputAdapter
-{
-    private:
-        
+{        
     public:
-        InputAdapter();
-        ~InputAdapter();
 
         /**
-         * Get pressed keyboard button
+         * Clossplatform method
+         * Returns InputManager for platform
+         * (now only for windows)
          */
-        int getch();
+        static InputManager getInputManager();
 };
 

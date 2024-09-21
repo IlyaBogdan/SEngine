@@ -1,4 +1,5 @@
 #include "input/InputManager.hpp"
+#include "input/controlls/platforms/pc/PCInputState.hpp"
 
 /**
  * Input manager for PC
@@ -22,13 +23,6 @@ class PCInputManager : InputManager
          * Return mouse position
          * @returns bool
          */
-        virtual int getMousePosition();
-
-        /**
-         * Check if button pressed
-         * @param 
-         * @returns bool
-         */
-        virtual bool isButtonPressed();
+        virtual MousePosition getMousePosition();
 };
 

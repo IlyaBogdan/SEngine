@@ -4,8 +4,12 @@
 class GameEngine
 {
     private:
+
+        InputManager inputManager;
         
     public:
+
+        bool running;
 
         /**
          * Entry point to game

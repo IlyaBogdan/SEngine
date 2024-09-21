@@ -1,11 +1,23 @@
-#include "core/GameEngine.h"
+#include "core/GameEngine.hpp"
+#include "input/InputAdapter.hpp"
 
 bool GameEngine::init() {
-    return true;
+    //try
+    //{
+        this->running = true;
+        this->inputManager = InputAdapter::getInputManager();
+        return true;
+    //}
+    //catch(const std::exception& e)
+    //{
+    //    std::cerr << e.what() << '\n';
+    //}
 }
 
 void GameEngine::run() {
-
+    while (this->running) {
+        this->inputManager->getInputState();
+    }
 }
 
 void GameEngine::stop() {

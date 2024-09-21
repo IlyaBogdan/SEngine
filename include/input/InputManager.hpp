@@ -1,4 +1,6 @@
-#include "input/controlls/InputState.hpp"
+#include <queue>
+
+#include "input/controlls/InputEvent.hpp"
 #include "input/InputAdapter.hpp"
 
 /**
@@ -7,10 +9,19 @@
 class InputManager
 {
     private:
+        std::queue<InputEvent> events;
+        
+    public:
+
+        /**
+         * Check if button pressed
+         * @param 
+         * @returns bool
+         */
+        virtual bool isButtonPressed();
+
         /**
          * Return info about controlls state
          */
-        virtual InputState getState();
-        
-    public:
+        virtual InputState getInputState();
 };

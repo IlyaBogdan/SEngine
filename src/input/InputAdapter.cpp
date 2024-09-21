@@ -1,16 +1,6 @@
 #include "input/InputAdapter.hpp"
-#include "systemType.h"
-#include <conio.h>
-#include <string>
+#include "input/platforms/pc/windows/WindowsInputManager.hpp"
 
-InputAdapter::InputAdapter() {
-
-}
-
-InputAdapter::~InputAdapter() {
-    
-}
-
-int InputAdapter::getch() {
-    return 1;
+InputManager InputAdapter::getInputManager() {
+    return WindowsInputManager();
 }
