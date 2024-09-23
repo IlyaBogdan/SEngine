@@ -5,6 +5,7 @@ bool GameEngine::init() {
     //try
     //{
         this->running = true;
+        this->loop = GameLoop::init();
         this->inputManager = InputAdapter::getInputManager();
         return true;
     //}

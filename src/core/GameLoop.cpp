@@ -1,14 +1,16 @@
-#include "core/GameLoop.h"
+#include "core/GameLoop.hpp"
 
-bool GameLoop::init() {
-    return true;
+GameLoop GameLoop::init() {
+    GameLoop loop = GameLoop();
+
+    return loop;
 }
 
 void GameLoop::run() {
-
+    this->running = true;
 }
 
 void GameLoop::stop(){
-
+    this->running = false;
 }
 

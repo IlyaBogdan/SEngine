@@ -4,13 +4,15 @@
 class GameLoop
 {
     private:
+
+        bool running;
         
     public:
 
         /**
          * Entry point to game
          */
-        bool init();
+        GameLoop init();
 
         /**
          * General iteration method
@@ -18,7 +20,7 @@ class GameLoop
         void run();
 
         /**
-         * Stop engine work
+         * Stop loop work
          */
         void stop();
 };

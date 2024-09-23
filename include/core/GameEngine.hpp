@@ -6,6 +6,7 @@ class GameEngine
     private:
 
         InputManager inputManager;
+        GameLoop loop;
         
     public:
 
