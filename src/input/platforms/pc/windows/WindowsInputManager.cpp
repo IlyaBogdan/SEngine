@@ -9,7 +9,7 @@
 using namespace InputModule;
 
 WindowsInputManager::WindowsInputManager() {
-    std::cout << "Windows input manager running" << std::endl;
+    
 }
 
 WindowsInputManager::~WindowsInputManager() {

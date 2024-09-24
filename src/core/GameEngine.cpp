@@ -27,6 +27,9 @@ bool GameEngine::init() {
 
 void GameEngine::run() {
     Graphics::Window& window = Graphics::Window::Instance();
+    //window.setFullscreen(true);
+    //window.setFPS(60);
+
     while (this->running) {
         this->inputManager->handleInput();
         InputModule::InputEvent* event = this->inputManager->getEvent();
@@ -37,7 +40,7 @@ void GameEngine::run() {
             std::cout << "================\n";
         }
 
-        window.render();       
+        window.render();
     }
 }
 

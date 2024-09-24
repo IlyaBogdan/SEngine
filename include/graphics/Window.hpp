@@ -1,4 +1,5 @@
 #pragma once
+#include <SFML/Graphics.hpp>
 
 namespace Graphics
 {
@@ -8,18 +9,31 @@ namespace Graphics
     class Window
     {
         public:
-            static Window& Instance() {
-                static Window window;
-                return window;
-            }
+            static Window& Instance();
 
             void render();
 
-        private:
-            Window() {}
-            ~Window() {}
+            /**
+             * Set fullscren mode for context
+             * @param fullscreen
+             */
+            Window* setFullscreen(bool fullscreen);
 
+            /**
+             * Set framerate for context
+             * @param fps
+             */
+            Window* setFPS(int fps);
+
+        private:
+            Window();
+            ~Window() {}
             Window(Window const&);
             Window& operator= (Window const&);
+            sf::Window* context;
+
+            void applySettings();
+            bool fullscreen = true;
+            int fps = 60;
     };
 }
