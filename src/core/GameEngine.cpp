@@ -2,6 +2,7 @@
 #include "core/GameLoop.hpp"
 #include "input/InputAdapter.hpp"
 #include "input/controlls/InputEvent.hpp"
+#include "graphics/Window.hpp"
 #include <iostream>
 
 using namespace Core;
@@ -25,6 +26,7 @@ bool GameEngine::init() {
 }
 
 void GameEngine::run() {
+    Graphics::Window& window = Graphics::Window::Instance();
     while (this->running) {
         this->inputManager->handleInput();
         InputModule::InputEvent* event = this->inputManager->getEvent();
@@ -33,7 +35,9 @@ void GameEngine::run() {
             std::cout << event->eventType << "\n";
             std::cout << event->controller << "\n";
             std::cout << "================\n";
-        }        
+        }
+
+        window.render();       
     }
 }
 

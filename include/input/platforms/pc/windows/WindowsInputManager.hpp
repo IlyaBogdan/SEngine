@@ -1,6 +1,5 @@
 #pragma once
 
-#include <Windows.h>
 #include "input/platforms/pc/PCInputManager.hpp"
 
 namespace InputModule

@@ -1,5 +1,4 @@
 #pragma once
-#include <iostream>
 #include "input/InputManager.hpp"
 
 namespace InputModule
@@ -16,7 +15,6 @@ namespace InputModule
             ~PCInputManager();
 
             virtual void handleInput() {
-                std::cout << "PCInputManager handle input" << std::endl;
                 this->handleMouse();
                 this->handleKeyboard();
             }

@@ -17,16 +17,17 @@ WindowsInputManager::~WindowsInputManager() {
 }
 
 void WindowsInputManager::handleKeyboard() {
-    // if (_kbhit())
-    // {
+    if (_kbhit()) {
         KeyboardEvent event;
         event.eventType = S_KEYBOARD_KEYDOWN;
         event.key = _getch();
 
         events.push(event);
-    // }
+    }
 }
 
-void WindowsInputManager::handleMouse() {
 
+
+void WindowsInputManager::handleMouse() {
+    
 }
