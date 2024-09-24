@@ -1,29 +1,38 @@
-/**
- * 
- */
-class GameEngine
+#pragma once
+
+#include "input/InputManager.hpp"
+#include "core/GameLoop.hpp"
+
+namespace Core
 {
-    private:
+    /**
+     * 
+     */
+    class GameEngine
+    {            
+        public:
+            ~GameEngine();
 
-        InputManager inputManager;
-        GameLoop loop;
-        
-    public:
+            bool running;
 
-        bool running;
+            /**
+             * Entry point to game
+             */
+            bool init();
 
-        /**
-         * Entry point to game
-         */
-        bool init();
+            /**
+             * General iteration method
+             */
+            void run();
 
-        /**
-         * General iteration method
-         */
-        void run();
+            /**
+             * Stop engine work
+             */
+            void stop();
 
-        /**
-         * Stop engine work
-         */
-        void stop();
-};
+        private:
+
+            InputModule::InputManager* inputManager;
+            GameLoop loop;
+    };
+}

@@ -1,5 +1,7 @@
 #include "core/GameLoop.hpp"
 
+using namespace Core;
+
 GameLoop GameLoop::init() {
     GameLoop loop = GameLoop();
 

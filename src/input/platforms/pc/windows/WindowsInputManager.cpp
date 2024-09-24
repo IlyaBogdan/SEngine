@@ -1,18 +1,32 @@
+#include <conio.h>
+#include <windows.h>
+#include <iostream>
+
 #include "input/platforms/pc/windows/WindowsInputManager.hpp"
+#include "input/controlls/platforms/pc/KeyboardEvent.hpp"
+#include "input/controlls/platforms/pc/MouseEvent.hpp"
+
+using namespace InputModule;
 
 WindowsInputManager::WindowsInputManager() {
-
+    std::cout << "Windows input manager running" << std::endl;
 }
 
 WindowsInputManager::~WindowsInputManager() {
 
 }
 
-MousePosition WindowsInputManager::getMousePosition() {
-    int xPos = GET_X_LPARAM(lParam); 
-    int yPos = GET_Y_LPARAM(lParam);
+void WindowsInputManager::handleKeyboard() {
+    // if (_kbhit())
+    // {
+        KeyboardEvent event;
+        event.eventType = S_KEYBOARD_KEYDOWN;
+        event.key = _getch();
 
-    MousePosition mousePosition{xPos, yPos};
+        events.push(event);
+    // }
+}
 
-    return mousePosition;
+void WindowsInputManager::handleMouse() {
+
 }

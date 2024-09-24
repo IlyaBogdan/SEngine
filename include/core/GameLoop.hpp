@@ -1,26 +1,31 @@
-/**
- * 
- */
-class GameLoop
+#pragma once
+
+namespace Core
 {
-    private:
+    /**
+     * 
+     */
+    class GameLoop
+    {
+        private:
 
-        bool running;
-        
-    public:
+            bool running;
+            
+        public:
 
-        /**
-         * Entry point to game
-         */
-        GameLoop init();
+            /**
+             * Entry point to game
+             */
+            GameLoop init();
 
-        /**
-         * General iteration method
-         */
-        void run();
+            /**
+             * General iteration method
+             */
+            void run();
 
-        /**
-         * Stop loop work
-         */
-        void stop();
-};
+            /**
+             * Stop loop work
+             */
+            void stop();
+    };
+}

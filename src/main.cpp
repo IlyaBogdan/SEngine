@@ -1,7 +1,8 @@
 #include "core/GameEngine.hpp"
 
 int main() {
-    GameEngine engine = GameEngine();
+    Core::GameEngine engine = Core::GameEngine();
     engine.init();
+    engine.run();
     return 0;
 }

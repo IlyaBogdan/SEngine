@@ -1,27 +1,32 @@
+#pragma once
 #include <queue>
 
 #include "input/controlls/InputEvent.hpp"
-#include "input/InputAdapter.hpp"
 
-/**
- * Manage all inputs from controllers
- */
-class InputManager
+namespace InputModule
 {
-    private:
-        std::queue<InputEvent> events;
+    /**
+     * Manage all inputs from controllers
+     */
+    class InputManager
+    {           
+        public:
+            InputManager();
+            ~InputManager();
+
+            InputEvent* getEvent() {
+                if (!this->events.empty()) {
+                    InputEvent* eventPointer = &(this->events.back());
+                    this->events.pop();
+                    return eventPointer;
+                }
+                
+                return NULL;
+            }
+
+            virtual void handleInput() {};
         
-    public:
-
-        /**
-         * Check if button pressed
-         * @param 
-         * @returns bool
-         */
-        virtual bool isButtonPressed();
-
-        /**
-         * Return info about controlls state
-         */
-        virtual InputState getInputState();
-};
+        protected:
+            std::queue<InputEvent> events;
+    };
+}

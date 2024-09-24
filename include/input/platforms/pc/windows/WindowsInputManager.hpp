@@ -1,14 +1,23 @@
-//#include <Windows.h>
+#pragma once
+
+#include <Windows.h>
 #include "input/platforms/pc/PCInputManager.hpp"
 
-/**
- * Input manager for PC on Windows
- */
-class WindowsInputManager : PCInputManager
+namespace InputModule
 {
-    private:
-        
-    public:
-        WindowsInputManager();
-        ~WindowsInputManager();
-};
+    /**
+     * Input manager for PC on Windows
+     */
+    class WindowsInputManager : public PCInputManager
+    {
+        private:
+            
+        public:
+            WindowsInputManager();
+            ~WindowsInputManager();
+
+        protected:
+            virtual void handleKeyboard();
+            virtual void handleMouse();
+    };
+}

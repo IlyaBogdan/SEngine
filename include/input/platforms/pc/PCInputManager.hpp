@@ -1,28 +1,28 @@
+#pragma once
+#include <iostream>
 #include "input/InputManager.hpp"
-#include "input/controlls/platforms/pc/PCInputState.hpp"
 
-/**
- * Input manager for PC
- */
-class PCInputManager : InputManager
+namespace InputModule
 {
-    private:
-        /* data */
-    public:
-        PCInputManager();
-        ~PCInputManager();
+    /**
+     * Input manager for PC
+     */
+    class PCInputManager : public InputManager
+    {
+        private:
+            
+        public:
+            PCInputManager();
+            ~PCInputManager();
 
-        /**
-         * Check keyboard button state
-         * @param 
-         * @returns bool
-         */
-        virtual bool getKeyState();
+            virtual void handleInput() {
+                std::cout << "PCInputManager handle input" << std::endl;
+                this->handleMouse();
+                this->handleKeyboard();
+            }
 
-        /**
-         * Return mouse position
-         * @returns bool
-         */
-        virtual MousePosition getMousePosition();
-};
-
+        protected:
+            virtual void handleKeyboard() {};
+            virtual void handleMouse() {};
+    };
+}
