@@ -1,6 +1,5 @@
 #pragma once
 
-#include "input/InputManager.hpp"
 #include "core/GameLoop.hpp"
 
 namespace Core
@@ -31,8 +30,6 @@ namespace Core
             void stop();
 
         private:
-
-            InputModule::InputManager* inputManager;
             GameLoop loop;
     };
 }

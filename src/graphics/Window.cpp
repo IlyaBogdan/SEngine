@@ -18,6 +18,14 @@ void Window::render() {
     this->context->display();
 }
 
+void Window::close() {
+    this->context->close();
+}
+
+bool Window::getEvent(sf::Event &event) {
+    return this->context->pollEvent(event);
+}
+
 Window* Window::setFullscreen(bool fullscreen) {
     this->fullscreen = fullscreen;
     this->applySettings();

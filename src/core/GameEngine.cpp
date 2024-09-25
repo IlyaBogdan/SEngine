@@ -1,14 +1,12 @@
 #include "core/GameEngine.hpp"
 #include "core/GameLoop.hpp"
-#include "input/InputAdapter.hpp"
-#include "input/controlls/InputEvent.hpp"
 #include "graphics/Window.hpp"
 #include <iostream>
 
 using namespace Core;
 
 GameEngine::~GameEngine() {
-    delete inputManager;
+
 }
 
 bool GameEngine::init() {
@@ -16,7 +14,6 @@ bool GameEngine::init() {
     //{
         this->running = true;
         //this->loop = GameLoop::init();
-        this->inputManager = InputModule::InputAdapter::getInputManager();
         return true;
     //}
     //catch(const std::exception& e)
@@ -31,13 +28,23 @@ void GameEngine::run() {
     //window.setFPS(60);
 
     while (this->running) {
-        this->inputManager->handleInput();
-        InputModule::InputEvent* event = this->inputManager->getEvent();
+        sf::Event event;
+        while (window.getEvent(event)) {
+            switch (event.type) {
+                
+                case sf::Event::Closed:
+                    window.close();
+                    break;
 
-        if (event) {
-            std::cout << event->eventType << "\n";
-            std::cout << event->controller << "\n";
-            std::cout << "================\n";
+                // key pressed
+                case sf::Event::KeyPressed:
+                    
+                    break;
+
+                // we don't process other types of events
+                default:
+                    break;
+            }
         }
 
         window.render();
