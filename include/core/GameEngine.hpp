@@ -1,16 +1,17 @@
 #pragma once
 
 #include "core/GameLoop.hpp"
+#include "input/InputManager.hpp"
 
 namespace Core
 {
-    /**
-     * 
-     */
     class GameEngine
     {            
         public:
-            ~GameEngine();
+            static GameEngine& getInstance() {
+                static GameEngine engine;
+                return engine;
+            }
 
             bool running;
 
@@ -30,6 +31,11 @@ namespace Core
             void stop();
 
         private:
-            GameLoop loop;
+            GameEngine() {};
+            ~GameEngine() {};
+            GameEngine(GameEngine const&);
+            GameEngine& operator= (GameEngine const&);
+
+            Input::InputManager* inputManager;
     };
 }

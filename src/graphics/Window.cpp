@@ -22,8 +22,12 @@ void Window::close() {
     this->context->close();
 }
 
-bool Window::getEvent(sf::Event &event) {
-    return this->context->pollEvent(event);
+sf::Window* Window::getContext() {
+    return this->context;
+}
+
+bool Window::getEvent(sf::Event *event) {
+    return this->context->pollEvent(*(event));
 }
 
 Window* Window::setFullscreen(bool fullscreen) {

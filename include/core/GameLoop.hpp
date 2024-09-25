@@ -6,13 +6,10 @@ namespace Core
      * 
      */
     class GameLoop
-    {
-        private:
-
-            bool running;
-            
+    {            
         public:
-
+            GameLoop();
+            
             /**
              * Entry point to game
              */
@@ -27,5 +24,8 @@ namespace Core
              * Stop loop work
              */
             void stop();
+
+        private:
+            bool running;
     };
 }

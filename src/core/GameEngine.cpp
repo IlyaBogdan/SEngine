@@ -5,15 +5,12 @@
 
 using namespace Core;
 
-GameEngine::~GameEngine() {
-
-}
-
 bool GameEngine::init() {
     //try
     //{
         this->running = true;
         //this->loop = GameLoop::init();
+        this->inputManager = &(Input::InputManager());
         return true;
     //}
     //catch(const std::exception& e)
@@ -24,27 +21,13 @@ bool GameEngine::init() {
 
 void GameEngine::run() {
     Graphics::Window& window = Graphics::Window::Instance();
-    //window.setFullscreen(true);
-    //window.setFPS(60);
+    window.setFullscreen(true);
+    window.setFPS(60);
 
     while (this->running) {
         sf::Event event;
-        while (window.getEvent(event)) {
-            switch (event.type) {
-                
-                case sf::Event::Closed:
-                    window.close();
-                    break;
-
-                // key pressed
-                case sf::Event::KeyPressed:
-                    
-                    break;
-
-                // we don't process other types of events
-                default:
-                    break;
-            }
+        while (window.getEvent(&event)) {
+            this->inputManager->handleEvent(&event, window.getContext());
         }
 
         window.render();
@@ -52,5 +35,5 @@ void GameEngine::run() {
 }
 
 void GameEngine::stop() {
-
+    this->running = false;
 }

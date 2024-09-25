@@ -2,6 +2,10 @@
 
 using namespace Core;
 
+GameLoop::GameLoop() {
+    
+}
+
 GameLoop GameLoop::init() {
     GameLoop loop = GameLoop();
 

@@ -25,7 +25,9 @@ namespace Graphics
              */
             Window* setFPS(int fps);
 
-            bool getEvent(sf::Event &event);
+            sf::Window* getContext();
+
+            bool getEvent(sf::Event *event);
             void Window::close();
 
         private:
