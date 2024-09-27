@@ -1,11 +1,8 @@
-#include <SFML/Audio.hpp>
-#include <SFML/Graphics.hpp>
-
 #include "graphics/Window.hpp"
 
 using namespace Graphics;
 
-Window& Window::Instance() {
+Window& Window::getInstance() {
     static Window window;
     return window;
 }
@@ -43,12 +40,9 @@ Window* Window::setFPS(int fps) {
 }
 
 void Window::applySettings() {
-    sf::VideoMode videoMode = this->fullscreen ? sf::VideoMode::getDesktopMode() : sf::VideoMode(640, 480);
     int style = this->fullscreen ? sf::Style::Fullscreen : sf::Style::Close;
     if (this->context) {
         delete this->context;
     }
-    
-    this->context = new sf::Window(videoMode, "Hello world!", this->fullscreen);
-    this->context->setFramerateLimit(this->fps);
+    this->context = new sf::Window(sf::VideoMode::getDesktopMode(), "Hello world!", style);
 }
