@@ -1,0 +1,44 @@
+cmake_minimum_required(VERSION 3.10)
+project(SEngineProject)
+
+set(CMAKE_CXX_STANDARD 17)
+
+set(SFML_DIR "path/to/SFML/lib/cmake/SFML")
+set(SFML_LIB_DIR "path/to/SFML/lib")
+set(SFML_INCLUDE_DIR "path/to/SFML/include")
+
+include_directories(include ${SFML_INCLUDE_DIR})
+
+file(GLOB_RECURSE SOURCES "src/*.cpp")
+
+add_executable(GameEngine ${SOURCES})
+
+find_package(SFML COMPONENTS network audio graphics window system REQUIRED)
+if(SFML_FOUND)
+  include_directories(${SFML_LIB_DIR})
+  target_link_libraries(GameEngine sfml-network sfml-audio sfml-graphics sfml-window sfml-system)
+endif()
+
+if(CMAKE_BUILD_TYPE STREQUAL "Debug")
+    target_compile_definitions(GameEngine PRIVATE DEBUG)
+endif()
+
+include(FetchContent)
+FetchContent_Declare(
+  googletest
+  URL https://github.com/google/googletest/archive/03597a01ee50ed33e9dfd640b249b4be3799d395.zip
+)
+# For Windows: Prevent overriding the parent project's compiler/linker settings
+set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
+FetchContent_MakeAvailable(googletest)
+
+enable_testing()
+
+file(GLOB_RECURSE G_TESTS "tests/*.cc")
+
+add_executable(tests ${G_TESTS})
+
+target_link_libraries(tests GTest::gtest_main)
+
+include(GoogleTest)
+gtest_discover_tests(tests)
