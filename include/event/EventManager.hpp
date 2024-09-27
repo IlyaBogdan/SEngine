@@ -1,5 +1,5 @@
 #pragma once
-#include <SFML/Graphics.hpp>
+#include "graphics/Window.hpp"
 
 namespace Event
 {
@@ -7,7 +7,7 @@ namespace Event
     {
         public:
             static EventManager& getInstance();
-            void handleEvent(sf::Window* context);
+            void handleEvent(Graphics::Window& context);
 
         private:
             EventManager() {};

@@ -7,14 +7,15 @@ EventManager& EventManager::getInstance() {
     return eventManager;
 }
 
-void EventManager::handleEvent(sf::Window* context) {
+void EventManager::handleEvent(Graphics::Window& context) {
     sf::Event event;
-    while (context->pollEvent(event)) {
-        if (event.type == sf::Event::Closed) context->close();
+    sf::Window* sfmlWindow = context.getContext();
+    while (sfmlWindow->pollEvent(event)) {
+        if (event.type == sf::Event::Closed) sfmlWindow->close();
 
         // keyboard
         if (event.type == sf::Event::KeyPressed) {
-            if (event.key.code == sf::Keyboard::Escape) context->close();
+            if (event.key.code == sf::Keyboard::Escape) sfmlWindow->close();
         }
 
         // mouse

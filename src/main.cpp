@@ -12,7 +12,7 @@ int main() {
     // main loop
     while (window.getContext()->isOpen())
 	{
-        eventManager.handleEvent(window.getContext());
+        eventManager.handleEvent(window);
 		window.render();
 	}
 
