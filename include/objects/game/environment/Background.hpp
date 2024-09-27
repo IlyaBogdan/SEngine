@@ -11,7 +11,10 @@ namespace GameEnvironment
             ~Background() {};
 
             void draw(Graphics::Window& context) override;
-            void setTexture(std::string texturePath) override;
+            int setTexture(std::string texturePath) override;
             void setCoordinates(GameObjectInterface::Coordinates coordinates) override;
+
+        private:
+            sf::Texture texture;
     };
 }

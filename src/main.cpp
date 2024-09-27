@@ -15,31 +15,17 @@ int main() {
     // scene setup
     Scene scene = Scene();
     GameEnvironment::Background background = GameEnvironment::Background();
+    background.setTexture("assets/background/background_0.png");
+    scene.addObject(&background);
 
     // main loop
     while (window.getContext()->isOpen())
 	{
-        eventManager.handleEvent(window);
-        sf::Texture texture;
-        //sf::IntRect(10, 10, 32, 32)
-        if (!texture.loadFromFile("assets/background/background_0.png")) {
-            std::cerr << "Error: Could not load the texture!" << std::endl;
-            return -1;
-        }
-
-        texture.setSmooth(true);
-        texture.setRepeated(true);
-
-        sf::Sprite sprite;
-        sprite.setTexture(texture);
+        eventManager.handleEvent(window);        
 
         // draw loop
-
         window.getContext()->clear();
-
-        window.getContext()->draw(sprite);
-        //texture.update(*window.getContext());
-        
+        scene.render();
 		window.render();
 	}
 
