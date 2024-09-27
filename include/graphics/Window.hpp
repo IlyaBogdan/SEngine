@@ -28,7 +28,7 @@ namespace Graphics
             /**
              * Return link to SFML context
              */
-            sf::Window* getContext();
+            sf::RenderWindow* getContext();
 
             bool getEvent(sf::Event *event);
             void Window::close();
@@ -39,7 +39,7 @@ namespace Graphics
             Window(Window const&);
             Window& operator= (Window const&);
 
-            sf::Window* context;
+            sf::RenderWindow* context;
             void applySettings();
             bool fullscreen = true;
             int fps = 60;

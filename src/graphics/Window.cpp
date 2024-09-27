@@ -19,7 +19,7 @@ void Window::close() {
     this->context->close();
 }
 
-sf::Window* Window::getContext() {
+sf::RenderWindow* Window::getContext() {
     return this->context;
 }
 
@@ -44,5 +44,5 @@ void Window::applySettings() {
     if (this->context) {
         delete this->context;
     }
-    this->context = new sf::Window(sf::VideoMode::getDesktopMode(), "Hello world!", style);
+    this->context = new sf::RenderWindow(sf::VideoMode::getDesktopMode(), "Hello world!", style);
 }
