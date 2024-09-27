@@ -20,7 +20,7 @@ int Background::setTexture(std::string texturePath) {
     
     if (!this->texture.loadFromFile(texturePath)) {
         std::cerr << "Error: Could not load the texture!" << std::endl;
-        return -1;
+        return 0;
     }
 
     this->texture.setSmooth(true);
