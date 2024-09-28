@@ -10,10 +10,13 @@ void Character::draw(Graphics::Window& context) {
         float y = this->coordinates.y;
         this->setCoordinates(GameObjectInterface::Coordinates{x, y});
     }
+    
+    int rotateAngle = this->direction ? 0 : 180;
 
     if (this->animation) {
         Animations__Character::Animation* animation = dynamic_cast<Animations__Character::Animation*>(this->animation);
         animation->setCoordinates(this->coordinates);
+        animation->setRotateAngle(rotateAngle);
         animation->play(context);
     }
 }
@@ -42,7 +45,9 @@ void Character::interruptAnimation() {
     this->animation->stop();
 }
 
-void Character::moveTo() {
+void Character::moveTo(enum GameObjectInterface::Direction direction) {
+    this->direction = direction;
+    this->movingSpeed = direction ? this->movingSpeed : -this->movingSpeed;
     this->moving = true;
 }
 

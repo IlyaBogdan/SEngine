@@ -13,6 +13,7 @@ sf::Sprite Animation::getSprite() {
     // scale
     sprite.setScale(sf::Vector2f(1.5f, 1.5f)); // absolute scale factor
     sprite.scale(sf::Vector2f(1.5f, 1.5f)); // factor relative to the current scale
+    sprite.setRotation(this->rotateAngle);
     
     return sprite;
 }

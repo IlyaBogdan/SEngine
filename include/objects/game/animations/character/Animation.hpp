@@ -9,7 +9,6 @@ namespace Animations__Character
     {
         public:
             Animation() {};
-            //Animation(const Abstract::Animation& animationPtr) {};
             sf::Sprite getSprite() override;
     };
 }

@@ -58,9 +58,13 @@ SpriteAnimation* SpriteAnimation::setSpriteFolder(std::string spriteFolder) {
     return this;
 }
 
-SpriteAnimation* SpriteAnimation::setCoordinates(GameObjectInterface::Coordinates coordinates)
-{
+SpriteAnimation* SpriteAnimation::setCoordinates(GameObjectInterface::Coordinates coordinates) {
     this->coordinates = sf::Vector2f(coordinates.x, coordinates.y);
+    return this;
+}
+
+SpriteAnimation* SpriteAnimation::setRotateAngle(int rotateAngle) {
+    this->rotateAngle = rotateAngle;
     return this;
 }
 

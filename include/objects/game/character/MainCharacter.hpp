@@ -10,7 +10,7 @@ namespace Character
             static MainCharacter& getInstance();
 
             void setCoordinates(GameObjectInterface::Coordinates coordinates) override;
-            void moveTo() override;
+            void moveTo(enum GameObjectInterface::Direction direction) override;
             void stop() override;
             
         private:

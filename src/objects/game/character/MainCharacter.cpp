@@ -31,9 +31,9 @@ void MainCharacter::setCoordinates(GameObjectInterface::Coordinates coordinates)
     this->coordinates = coordinates;
 }
 
-void MainCharacter::moveTo() {
+void MainCharacter::moveTo(enum GameObjectInterface::Direction direction) {
+    Character::moveTo(direction);
     this->setAnimation(&movingAnimation);
-    this->moving = true;
 }
 
 void MainCharacter::stop() {

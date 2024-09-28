@@ -21,7 +21,7 @@ namespace Abstract
             virtual void setCoordinates(GameObjectInterface::Coordinates coordinates);
 
             void interruptAnimation() override;
-            virtual void moveTo();
+            virtual void moveTo(enum GameObjectInterface::Direction direction);
             virtual void stop();
 
         protected:
@@ -30,5 +30,6 @@ namespace Abstract
             sf::Texture texture;
             Abstract::Animation* animation;
             GameObjectInterface::Coordinates coordinates;
+            GameObjectInterface::Direction direction;
     };    
 }

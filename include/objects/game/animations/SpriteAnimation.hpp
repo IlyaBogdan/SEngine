@@ -19,6 +19,7 @@ namespace Animations
             SpriteAnimation* setSpriteInterval(int spriteRenderInterval);
             SpriteAnimation* setSpriteFolder(std::string spriteFolder);
             SpriteAnimation* setCoordinates(GameObjectInterface::Coordinates coordinates);
+            SpriteAnimation* setRotateAngle(int rotateAngle);
 
         private:
             
@@ -31,6 +32,7 @@ namespace Animations
             sf::Clock timer;
             sf::Texture texture;
             sf::Vector2f coordinates;
+            int rotateAngle = 0;
 
             std::string getSritePath();
     };

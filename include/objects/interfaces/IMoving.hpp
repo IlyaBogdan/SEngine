@@ -4,10 +4,15 @@
 
 namespace GameObjectInterface
 {    
+    enum Direction {
+        LEFT,
+        RIGHT
+    };
+
     class IMoving
     {
         public:
-            virtual void moveTo() = 0;
+            virtual void moveTo(enum Direction direction) = 0;
             virtual void stop() = 0;
     };
 }

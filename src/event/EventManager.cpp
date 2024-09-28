@@ -21,13 +21,21 @@ void EventManager::handleEvent(Graphics::Window& context) {
             if (event.key.code == sf::Keyboard::Escape) sfmlWindow->close();
 
             if (event.key.code == sf::Keyboard::D) {
-                mainCharacter.moveTo();
+                mainCharacter.moveTo(GameObjectInterface::Direction::RIGHT);
+            }
+
+            if (event.key.code == sf::Keyboard::A) {
+                mainCharacter.moveTo(GameObjectInterface::Direction::LEFT);
             }
         }
 
         if (event.type == sf::Event::KeyReleased) {
 
             if (event.key.code == sf::Keyboard::D) {
+                mainCharacter.stop();
+            }
+
+            if (event.key.code == sf::Keyboard::A) {
                 mainCharacter.stop();
             }
         }
