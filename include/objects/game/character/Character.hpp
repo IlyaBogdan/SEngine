@@ -18,15 +18,17 @@ namespace Abstract
             void draw(Graphics::Window& context) override;
             int setTexture(std::string texturePath) override;
             void setAnimation(Abstract::Animation* animation) override;
-            void setCoordinates(GameObjectInterface::Coordinates coordinates) override;
+            virtual void setCoordinates(GameObjectInterface::Coordinates coordinates);
 
             void interruptAnimation() override;
-            void moveTo() override;
-            void stop() override;
+            virtual void moveTo();
+            virtual void stop();
 
         protected:
-            bool moving = true;
+            bool moving = false;
+            float movingSpeed;
             sf::Texture texture;
             Abstract::Animation* animation;
+            GameObjectInterface::Coordinates coordinates;
     };    
 }

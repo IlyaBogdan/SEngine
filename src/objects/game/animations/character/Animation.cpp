@@ -1,12 +1,13 @@
-#include "objects/game/animations/character/main/Animation.hpp"
+#include "objects/game/animations/character/Animation.hpp"
 
-using namespace Animations__MainCharacter;
+using namespace Animations__Character;
 
 sf::Sprite Animation::getSprite() {
     sf::Sprite sprite;
+    
     sprite.setTexture(this->texture);
-    sprite.setOrigin(sf::Vector2f(25.f, 25.f));
-    sprite.setPosition(sf::Vector2f(100.f, 500.f)); // absolute position
+    sprite.setOrigin(sf::Vector2f(50.f, 50.f));
+    sprite.setPosition(this->coordinates); // absolute position
     sprite.move(sf::Vector2f(5.f, 10.f)); // offset relative to the current position
 
     // scale

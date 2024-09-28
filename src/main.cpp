@@ -5,12 +5,7 @@
 #include "scene/Scene.hpp"
 #include "objects/game/environment/Background.hpp"
 #include "objects/game/character/MainCharacter.hpp"
-#include "objects/game/animations/character/main/StandBy.hpp"
-#include "objects/game/animations/character/main/Moving.hpp"
 #include "objects/Animation.hpp"
-
-sf::Clock timer;
-bool animationFlag;
 
 int main() {
     // start setup
@@ -26,9 +21,6 @@ int main() {
     
     // init main character
     Character::MainCharacter& mainCharacter = Character::MainCharacter::getInstance();
-
-    Animations__MainCharacter::StandBy standByAnimation = Animations__MainCharacter::StandBy();
-    Animations__MainCharacter::Moving movingAnimation = Animations__MainCharacter::Moving();
     
     // scene setup
     Scene scene = Scene();
@@ -38,18 +30,6 @@ int main() {
     // main loop
     while (window.getContext()->isOpen())
 	{
-        std::cout << timer.getElapsedTime().asSeconds() << std::endl;
-        if (timer.getElapsedTime().asSeconds() > 3.f) {
-            animationFlag = !animationFlag;
-            timer.restart();
-        }
-
-        if (animationFlag) {
-            mainCharacter.setAnimation(&standByAnimation);
-        } else {
-            mainCharacter.setAnimation(&movingAnimation);
-        }
-
         eventManager.handleEvent(window);
 
         // draw loop

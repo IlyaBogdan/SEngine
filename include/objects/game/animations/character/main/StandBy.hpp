@@ -1,10 +1,10 @@
 #pragma once
 
-#include "objects/game/animations/character/main/Animation.hpp"
+#include "objects/game/animations/character/Animation.hpp"
 
 namespace Animations__MainCharacter
 {
-    class StandBy : public Animation
+    class StandBy : public Animations__Character::Animation
     {
         public:
             StandBy() {

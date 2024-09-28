@@ -18,6 +18,10 @@ namespace Animations
             SpriteAnimation* setAnimationStep(int animationStep);
             SpriteAnimation* setSpriteInterval(int spriteRenderInterval);
             SpriteAnimation* setSpriteFolder(std::string spriteFolder);
+            SpriteAnimation* setCoordinates(GameObjectInterface::Coordinates coordinates);
+
+        private:
+            
 
         protected:
             int animationStep = 0;
@@ -26,6 +30,7 @@ namespace Animations
             std::string spriteFolder;
             sf::Clock timer;
             sf::Texture texture;
+            sf::Vector2f coordinates;
 
             std::string getSritePath();
     };

@@ -6,7 +6,7 @@ namespace GameObjectInterface
 {
     struct Coordinates
     {
-        
+        float x, y;
     };
     
     class IDrawable

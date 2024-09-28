@@ -58,6 +58,12 @@ SpriteAnimation* SpriteAnimation::setSpriteFolder(std::string spriteFolder) {
     return this;
 }
 
+SpriteAnimation* SpriteAnimation::setCoordinates(GameObjectInterface::Coordinates coordinates)
+{
+    this->coordinates = sf::Vector2f(coordinates.x, coordinates.y);
+    return this;
+}
+
 std::string SpriteAnimation::getSritePath() {
     return "assets/" + this->spriteFolder + "/step_" + std::to_string(this->animationStep) + ".png";
 }

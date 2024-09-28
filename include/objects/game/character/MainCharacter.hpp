@@ -8,9 +8,14 @@ namespace Character
     {
         public:
             static MainCharacter& getInstance();
+
+            void setCoordinates(GameObjectInterface::Coordinates coordinates) override;
+            void moveTo() override;
+            void stop() override;
             
         private:
-            MainCharacter() {};
+            MainCharacter();
+
             ~MainCharacter() {}
             MainCharacter(MainCharacter const&);
             MainCharacter& operator= (MainCharacter const&);
