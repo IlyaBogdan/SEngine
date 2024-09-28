@@ -6,7 +6,11 @@
 #include "objects/game/environment/Background.hpp"
 #include "objects/game/character/MainCharacter.hpp"
 #include "objects/game/animations/character/main/StandBy.hpp"
+#include "objects/game/animations/character/main/Moving.hpp"
 #include "objects/Animation.hpp"
+
+sf::Clock timer;
+bool animationFlag;
 
 int main() {
     // start setup
@@ -22,21 +26,31 @@ int main() {
     
     // init main character
     Character::MainCharacter& mainCharacter = Character::MainCharacter::getInstance();
-    Animations__MainCharacter::StandBy standByAnimation = Animations__MainCharacter::StandBy();
-    standByAnimation.setMaxStep(1)
-        ->setSpriteFolder("character/MainCharacter/animations/stand_by")
-        ->setSpriteInterval(400);
-    mainCharacter.setAnimation(&standByAnimation);
 
+    Animations__MainCharacter::StandBy standByAnimation = Animations__MainCharacter::StandBy();
+    Animations__MainCharacter::Moving movingAnimation = Animations__MainCharacter::Moving();
+    
     // scene setup
     Scene scene = Scene();
     scene.addObject(&background);
-    scene.addObject(mainCharacter.drawableCast());
+    scene.addObject(&mainCharacter);
 
     // main loop
     while (window.getContext()->isOpen())
 	{
-        eventManager.handleEvent(window);        
+        std::cout << timer.getElapsedTime().asSeconds() << std::endl;
+        if (timer.getElapsedTime().asSeconds() > 3.f) {
+            animationFlag = !animationFlag;
+            timer.restart();
+        }
+
+        if (animationFlag) {
+            mainCharacter.setAnimation(&standByAnimation);
+        } else {
+            mainCharacter.setAnimation(&movingAnimation);
+        }
+
+        eventManager.handleEvent(window);
 
         // draw loop
         window.getContext()->clear();

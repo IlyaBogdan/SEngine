@@ -1,8 +1,8 @@
-#include "objects/game/animations/character/main/StandBy.hpp"
+#include "objects/game/animations/character/main/Animation.hpp"
 
 using namespace Animations__MainCharacter;
 
-sf::Sprite StandBy::getSprite() {
+sf::Sprite Animation::getSprite() {
     sf::Sprite sprite;
     sprite.setTexture(this->texture);
     sprite.setOrigin(sf::Vector2f(25.f, 25.f));

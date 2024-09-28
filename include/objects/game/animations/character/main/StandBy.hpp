@@ -1,12 +1,15 @@
 #pragma once
 
-#include "objects/game/animations/SpriteAnimation.hpp"
+#include "objects/game/animations/character/main/Animation.hpp"
 
 namespace Animations__MainCharacter
 {
-    class StandBy : public Animations::SpriteAnimation
+    class StandBy : public Animation
     {
         public:
-            sf::Sprite getSprite() override;
+            StandBy() {
+                this->spriteRenderInterval = 300;
+                this->spriteFolder = "character/MainCharacter/animations/stand_by";
+            }
     };
 }

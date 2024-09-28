@@ -17,17 +17,12 @@ namespace Abstract
 
             void draw(Graphics::Window& context) override;
             int setTexture(std::string texturePath) override;
-
             void setAnimation(Abstract::Animation* animation) override;
-            void interruptAnimation() override;
-
             void setCoordinates(GameObjectInterface::Coordinates coordinates) override;
+
+            void interruptAnimation() override;
             void moveTo() override;
             void stop() override;
-
-            GameObjectInterface::IDrawable* drawableCast() {
-                return dynamic_cast<GameObjectInterface::IDrawable*>(this);
-            }
 
         protected:
             bool moving = true;

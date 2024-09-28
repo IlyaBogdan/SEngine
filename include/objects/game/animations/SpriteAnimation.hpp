@@ -14,8 +14,8 @@ namespace Animations
             void play(Graphics::Window& context) override;
             void stop() override;
             
-            SpriteAnimation* setAnimationStep(int animationStep);
             SpriteAnimation* setMaxStep(int maxStep);
+            SpriteAnimation* setAnimationStep(int animationStep);
             SpriteAnimation* setSpriteInterval(int spriteRenderInterval);
             SpriteAnimation* setSpriteFolder(std::string spriteFolder);
 
