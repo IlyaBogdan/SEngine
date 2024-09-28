@@ -27,6 +27,10 @@ void EventManager::handleEvent(Graphics::Window& context) {
             if (event.key.code == sf::Keyboard::A) {
                 mainCharacter.moveTo(GameObjectInterface::Direction::LEFT);
             }
+
+            if (event.key.code == sf::Keyboard::Space) {
+                mainCharacter.jump();
+            }
         }
 
         if (event.type == sf::Event::KeyReleased) {

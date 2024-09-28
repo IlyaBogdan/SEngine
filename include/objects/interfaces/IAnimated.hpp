@@ -1,4 +1,5 @@
 #pragma once
+
 #include "objects/Animation.hpp"
 #include <string>
 

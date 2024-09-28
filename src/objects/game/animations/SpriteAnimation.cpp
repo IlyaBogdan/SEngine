@@ -15,7 +15,11 @@ void SpriteAnimation::play(Graphics::Window& context) {
     if (elapsedTime >= this->spriteRenderInterval) {
         this->animationStep++;
         if (this->animationStep > maxStep) {
-            this->animationStep = 0;
+            if (this->loop) {
+                this->animationStep = 0;
+            } else {
+                this->animationStep -= 1;
+            }
         }
         this->timer.restart();
         return;

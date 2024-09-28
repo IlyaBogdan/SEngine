@@ -28,6 +28,7 @@ namespace Animations
             int animationStep = 0;
             int maxStep = 1;
             int spriteRenderInterval = 400;
+            bool loop = true;
             std::string spriteFolder;
             sf::Clock timer;
             sf::Texture texture;

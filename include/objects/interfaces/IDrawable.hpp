@@ -1,4 +1,5 @@
 #pragma once
+
 #include "graphics/Window.hpp"
 #include <string>
 

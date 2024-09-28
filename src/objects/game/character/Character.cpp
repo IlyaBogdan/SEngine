@@ -12,6 +12,7 @@ void Character::draw(Graphics::Window& context) {
         } else {
             x -= this->movingSpeed;
         }
+        
         this->setCoordinates(GameObjectInterface::Coordinates{x, y});
     }
     

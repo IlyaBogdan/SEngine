@@ -8,9 +8,10 @@ namespace Animations__MainCharacter
     {
         public:
             Jump() {
-                this->maxStep = 5;
-                this->spriteRenderInterval = 100;
-                this->spriteFolder = "character/MainCharacter/animations/run";
+                this->maxStep = 3;
+                this->spriteRenderInterval = 200;
+                this->spriteFolder = "character/MainCharacter/animations/jump";
+                this->loop = false;
             }
     };
 }

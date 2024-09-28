@@ -1,4 +1,5 @@
 #pragma once
+
 #include "objects/GameObject.hpp"
 
 namespace GameObjectInterface
