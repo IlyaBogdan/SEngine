@@ -1,10 +1,10 @@
 #pragma once
 #include "objects/GameObject.hpp"
-#include "objects/interfaces/Drawable.hpp"
+#include "objects/interfaces/IDrawable.hpp"
 
 namespace GameEnvironment
 {
-    class Background : public Abstract::GameObject, public GameObjectInterface::Drawable
+    class Background : public Abstract::GameObject, public GameObjectInterface::IDrawable
     {
         public:
             Background() {};

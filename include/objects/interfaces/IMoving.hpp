@@ -4,9 +4,10 @@
 
 namespace GameObjectInterface
 {    
-    class Moving
+    class IMoving
     {
         public:
-            virtual int setTexture(std::string texturePath) = 0;
+            virtual void moveTo() = 0;
+            virtual void stop() = 0;
     };
 }

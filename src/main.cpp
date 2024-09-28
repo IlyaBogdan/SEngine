@@ -5,6 +5,8 @@
 #include "scene/Scene.hpp"
 #include "objects/game/environment/Background.hpp"
 #include "objects/game/character/MainCharacter.hpp"
+#include "objects/game/animations/character/main/StandBy.hpp"
+#include "objects/Animation.hpp"
 
 int main() {
     // start setup
@@ -14,14 +16,21 @@ int main() {
     window.setFullscreen(true);
     window.setFPS(60);
 
-    // scene setup
-    Scene scene = Scene();
+    // Add background
     GameEnvironment::Background background = GameEnvironment::Background();
     background.setTexture("assets/background/background_0.png");
-    scene.addObject(&background);
-
+    
     // init main character
     Character::MainCharacter& mainCharacter = Character::MainCharacter::getInstance();
+    Animations__MainCharacter::StandBy standByAnimation = Animations__MainCharacter::StandBy();
+    standByAnimation.setMaxStep(1)
+        ->setSpriteFolder("character/MainCharacter/animations/stand_by")
+        ->setSpriteInterval(400);
+    mainCharacter.setAnimation(&standByAnimation);
+
+    // scene setup
+    Scene scene = Scene();
+    scene.addObject(&background);
     scene.addObject(mainCharacter.drawableCast());
 
     // main loop

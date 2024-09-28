@@ -9,7 +9,7 @@ namespace GameObjectInterface
         
     };
     
-    class Drawable
+    class IDrawable
     {
         public:
             virtual void draw(Graphics::Window& context) = 0;

@@ -1,4 +1,4 @@
-#include "objects/interfaces/Drawable.hpp"
+#include "objects/interfaces/IDrawable.hpp"
 
 class Scene
 {
@@ -14,9 +14,9 @@ class Scene
         /**
          * Add new object to scene
          */
-        Scene* addObject(GameObjectInterface::Drawable* object);
+        Scene* addObject(GameObjectInterface::IDrawable* object);
 
     private:
-        std::vector<GameObjectInterface::Drawable*> objects;
+        std::vector<GameObjectInterface::IDrawable*> objects;
 
 };
