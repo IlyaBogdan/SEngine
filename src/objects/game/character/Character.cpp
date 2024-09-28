@@ -6,8 +6,12 @@ using namespace Abstract;
 
 void Character::draw(Graphics::Window& context) {
     if (this->moving) {
-        float x = this->coordinates.x + this->movingSpeed;
-        float y = this->coordinates.y;
+        float x = this->coordinates.x, y = this->coordinates.y;
+        if (this->direction == GameObjectInterface::Direction::RIGHT) {
+            x += this->movingSpeed;
+        } else {
+            x -= this->movingSpeed;
+        }
         this->setCoordinates(GameObjectInterface::Coordinates{x, y});
     }
     
@@ -47,7 +51,6 @@ void Character::interruptAnimation() {
 
 void Character::moveTo(enum GameObjectInterface::Direction direction) {
     this->direction = direction;
-    this->movingSpeed = direction ? this->movingSpeed : -this->movingSpeed;
     this->moving = true;
 }
 

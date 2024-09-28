@@ -11,8 +11,15 @@ sf::Sprite Animation::getSprite() {
     sprite.move(sf::Vector2f(5.f, 10.f)); // offset relative to the current position
 
     // scale
-    sprite.setScale(sf::Vector2f(1.5f, 1.5f)); // absolute scale factor
-    sprite.scale(sf::Vector2f(1.5f, 1.5f)); // factor relative to the current scale
+    if (this->rotateAngle) {
+        sprite.setScale(2.f, -2.f);
+    } else {
+        sprite.setScale(2.f, 2.f);
+    }
+    
+
+    sf::FloatRect bounds = sprite.getLocalBounds();
+    sprite.setOrigin(bounds.width / 2, bounds.height / 2);
     sprite.setRotation(this->rotateAngle);
     
     return sprite;

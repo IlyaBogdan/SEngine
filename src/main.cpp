@@ -5,7 +5,6 @@
 #include "scene/Scene.hpp"
 #include "objects/game/environment/Background.hpp"
 #include "objects/game/character/MainCharacter.hpp"
-#include "objects/Animation.hpp"
 
 int main() {
     // start setup

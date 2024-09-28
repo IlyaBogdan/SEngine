@@ -37,6 +37,6 @@ void MainCharacter::moveTo(enum GameObjectInterface::Direction direction) {
 }
 
 void MainCharacter::stop() {
+    Character::stop();
     this->setAnimation(&standByAnimation);
-    this->moving = false;
 }
