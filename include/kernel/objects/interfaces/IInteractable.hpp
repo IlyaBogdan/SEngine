@@ -1,6 +1,6 @@
 #pragma once
 
-#include "objects/GameObject.hpp"
+#include "kernel/objects/GameObject.hpp"
 
 namespace GameObjectInterface
 {

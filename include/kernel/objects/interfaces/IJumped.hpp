@@ -1,6 +1,6 @@
 #pragma once
 
-#include "graphics/Window.hpp"
+#include "kernel/graphics/Window.hpp"
 #include <string>
 
 namespace GameObjectInterface

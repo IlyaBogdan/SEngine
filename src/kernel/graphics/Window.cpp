@@ -1,4 +1,4 @@
-#include "graphics/Window.hpp"
+#include "kernel/graphics/Window.hpp"
 
 using namespace Graphics;
 

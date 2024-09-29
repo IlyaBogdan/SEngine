@@ -1,7 +1,7 @@
 #pragma once
 
 #include "objects/game/character/Character.hpp"
-#include "objects/interfaces/IJumped.hpp"
+#include "kernel/objects/interfaces/IJumped.hpp"
 
 namespace Character
 {

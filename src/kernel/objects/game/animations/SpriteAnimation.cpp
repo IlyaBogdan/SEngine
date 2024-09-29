@@ -1,5 +1,5 @@
 #include <iostream>
-#include "objects/game/animations/SpriteAnimation.hpp"
+#include "kernel/objects/game/animations/SpriteAnimation.hpp"
 
 using namespace Animations;
 

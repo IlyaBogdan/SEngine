@@ -1,6 +1,6 @@
 #pragma once
 
-#include "scene/Scene.hpp"
+#include "kernel/scene/Scene.hpp"
 
 namespace Abstract
 {

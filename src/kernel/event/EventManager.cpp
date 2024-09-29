@@ -1,4 +1,4 @@
-#include "event/EventManager.hpp"
+#include "kernel/event/EventManager.hpp"
 #include "objects/game/character/MainCharacter.hpp"
 
 using namespace Event;

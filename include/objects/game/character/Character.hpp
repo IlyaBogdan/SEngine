@@ -1,10 +1,10 @@
 #pragma once
 
-#include "objects/GameObject.hpp"
-#include "physics/PhysicObject.hpp"
-#include "objects/interfaces/IDrawable.hpp"
-#include "objects/interfaces/IMoving.hpp"
-#include "objects/interfaces/IAnimated.hpp"
+#include "kernel/objects/GameObject.hpp"
+#include "kernel/physics/PhysicObject.hpp"
+#include "kernel/objects/interfaces/IDrawable.hpp"
+#include "kernel/objects/interfaces/IMoving.hpp"
+#include "kernel/objects/interfaces/IAnimated.hpp"
 
 namespace Abstract
 {

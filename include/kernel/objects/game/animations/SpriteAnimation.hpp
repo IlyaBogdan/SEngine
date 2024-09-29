@@ -1,7 +1,7 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
-#include "objects/Animation.hpp"
+#include "kernel/objects/Animation.hpp"
 
 namespace Animations
 {

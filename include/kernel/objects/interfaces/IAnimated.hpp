@@ -1,6 +1,6 @@
 #pragma once
 
-#include "objects/Animation.hpp"
+#include "kernel/objects/Animation.hpp"
 #include <string>
 
 namespace GameObjectInterface

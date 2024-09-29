@@ -1,5 +1,5 @@
 #pragma once
-#include "graphics/Window.hpp"
+#include "kernel/graphics/Window.hpp"
 
 namespace Event
 {

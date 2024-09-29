@@ -1,4 +1,4 @@
-#include "objects/interfaces/IDrawable.hpp"
+#include "kernel/objects/interfaces/IDrawable.hpp"
 
 class Scene
 {

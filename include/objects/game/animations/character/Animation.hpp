@@ -1,7 +1,7 @@
 #pragma once
 
-#include "objects/game/animations/SpriteAnimation.hpp"
-#include "objects/Animation.hpp"
+#include "kernel/objects/game/animations/SpriteAnimation.hpp"
+#include "kernel/objects/Animation.hpp"
 
 namespace Animations__Character
 {

@@ -1,6 +1,7 @@
 #pragma once
-#include "objects/GameObject.hpp"
-#include "objects/interfaces/IDrawable.hpp"
+
+#include "kernel/objects/GameObject.hpp"
+#include "kernel/objects/interfaces/IDrawable.hpp"
 
 namespace GameEnvironment
 {

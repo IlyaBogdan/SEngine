@@ -1,8 +1,8 @@
 #include <iostream>
 
-#include "graphics/Window.hpp"
-#include "event/EventManager.hpp"
-#include "scene/Scene.hpp"
+#include "kernel/graphics/Window.hpp"
+#include "kernel/event/EventManager.hpp"
+#include "kernel/scene/Scene.hpp"
 #include "objects/game/environment/Background.hpp"
 #include "objects/game/character/MainCharacter.hpp"
 

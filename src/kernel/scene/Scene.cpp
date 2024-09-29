@@ -1,4 +1,4 @@
-#include "scene/Scene.hpp"
+#include "kernel/scene/Scene.hpp"
 
 void Scene::render() {
     std::for_each(this->objects.begin(), this->objects.end(),

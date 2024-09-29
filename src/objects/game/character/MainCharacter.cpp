@@ -1,7 +1,7 @@
 #include <iostream>
 #include <math.h>
 
-#include "physics/consts.h"
+#include "kernel/physics/consts.h"
 #include "objects/game/character/MainCharacter.hpp"
 #include "objects/game/animations/character/main/StandBy.hpp"
 #include "objects/game/animations/character/main/Moving.hpp"
@@ -66,7 +66,6 @@ void MainCharacter::jump() {
         startJump = this->coordinates;
     }
 
-    //sqrt(((maxHeight - jumpSpeed) * 2) / G, 2)
     float time = jumpTimer.getElapsedTime().asSeconds();
     float y = (jumpSpeed * time - (PHYSIC_G * pow(time, 2)) / 2) + startJump.y;
 
