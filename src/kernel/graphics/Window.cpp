@@ -1,6 +1,6 @@
 #include "kernel/graphics/Window.hpp"
 
-using namespace Graphics;
+using namespace Kernel;
 
 Window& Window::getInstance() {
     static Window window;

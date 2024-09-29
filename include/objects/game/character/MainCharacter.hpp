@@ -5,13 +5,13 @@
 
 namespace Character
 {
-    class MainCharacter : public Abstract::Character, GameObjectInterface::IJumped
+    class MainCharacter : public Abstract::Character, Kernel::Interfaces::IJumped
     {
         public:
             static MainCharacter& getInstance();
 
-            void setCoordinates(GameObjectInterface::Coordinates coordinates) override;
-            void moveTo(enum GameObjectInterface::Direction direction) override;
+            void setCoordinates(Kernel::Interfaces::Coordinates coordinates) override;
+            void moveTo(enum Kernel::Interfaces::Direction direction) override;
             void stop() override;
             void jump() override;
             

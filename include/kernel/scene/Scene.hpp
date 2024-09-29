@@ -1,22 +1,25 @@
 #include "kernel/objects/interfaces/IDrawable.hpp"
 
-class Scene
+namespace Kernel
 {
-    public:
-        Scene() {};
-        ~Scene() {};
+    class Scene
+    {
+        public:
+            Scene() {};
+            ~Scene() {};
 
-        /**
-         * Render scene
-         */
-        void render();
+            /**
+             * Render scene
+             */
+            void render();
 
-        /**
-         * Add new object to scene
-         */
-        Scene* addObject(GameObjectInterface::IDrawable* object);
+            /**
+             * Add new object to scene
+             */
+            Scene* addObject(Interfaces::IDrawable* object);
 
-    private:
-        std::vector<GameObjectInterface::IDrawable*> objects;
+        private:
+            std::vector<Interfaces::IDrawable*> objects;
 
-};
+    };
+}

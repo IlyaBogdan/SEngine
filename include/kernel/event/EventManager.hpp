@@ -1,13 +1,13 @@
 #pragma once
 #include "kernel/graphics/Window.hpp"
 
-namespace Event
+namespace Kernel
 {
     class EventManager
     {
         public:
             static EventManager& getInstance();
-            void handleEvent(Graphics::Window& context);
+            void handleEvent(Window& context);
 
         private:
             EventManager() {};

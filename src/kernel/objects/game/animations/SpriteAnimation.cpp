@@ -1,9 +1,10 @@
 #include <iostream>
 #include "kernel/objects/game/animations/SpriteAnimation.hpp"
 
+using namespace Kernel;
 using namespace Animations;
 
-void SpriteAnimation::play(Graphics::Window& context) {
+void SpriteAnimation::play(Window& context) {
     std::string spritePath = this->getSritePath();
 
     if (this->setTexture(spritePath)) {
@@ -62,7 +63,7 @@ SpriteAnimation* SpriteAnimation::setSpriteFolder(std::string spriteFolder) {
     return this;
 }
 
-SpriteAnimation* SpriteAnimation::setCoordinates(GameObjectInterface::Coordinates coordinates) {
+SpriteAnimation* SpriteAnimation::setCoordinates(Interfaces::Coordinates coordinates) {
     this->coordinates = sf::Vector2f(coordinates.x, coordinates.y);
     return this;
 }

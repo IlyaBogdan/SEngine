@@ -8,28 +8,28 @@
 
 namespace Abstract
 {
-    class Character : public Physics::PhysicObject,
-        public GameObject, public GameObjectInterface::IDrawable,
-        public GameObjectInterface::IMoving, public GameObjectInterface::IAnimated
+    class Character : public Kernel::Physics::PhysicObject,
+        public Kernel::Abstract::GameObject, public Kernel::Interfaces::IDrawable,
+        public Kernel::Interfaces::IMoving, public Kernel::Interfaces::IAnimated
     {
         public:
             virtual ~Character() = default;
 
-            void draw(Graphics::Window& context) override;
+            void draw(Kernel::Window& context) override;
             int setTexture(std::string texturePath) override;
-            void setAnimation(Abstract::Animation* animation) override;
-            virtual void setCoordinates(GameObjectInterface::Coordinates coordinates);
+            void setAnimation(Kernel::Abstract::Animation* animation) override;
+            virtual void setCoordinates(Kernel::Interfaces::Coordinates coordinates);
 
             void interruptAnimation() override;
-            virtual void moveTo(enum GameObjectInterface::Direction direction);
+            virtual void moveTo(enum Kernel::Interfaces::Direction direction);
             virtual void stop();
 
         protected:
             bool moving = false;
             float movingSpeed;
             sf::Texture texture;
-            Abstract::Animation* animation;
-            GameObjectInterface::Coordinates coordinates;
-            GameObjectInterface::Direction direction;
+            Kernel::Abstract::Animation* animation;
+            Kernel::Interfaces::Coordinates coordinates;
+            Kernel::Interfaces::Direction direction;
     };    
 }

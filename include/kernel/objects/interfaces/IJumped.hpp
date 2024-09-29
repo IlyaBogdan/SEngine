@@ -3,11 +3,14 @@
 #include "kernel/graphics/Window.hpp"
 #include <string>
 
-namespace GameObjectInterface
+namespace Kernel
 {
-    class IJumped
+    namespace Interfaces
     {
-        public:
-            virtual void jump() = 0;
-    };
+        class IJumped
+        {
+            public:
+                virtual void jump() = 0;
+        };
+    }
 }

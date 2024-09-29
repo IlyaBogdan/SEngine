@@ -3,12 +3,15 @@
 #include "kernel/objects/Animation.hpp"
 #include <string>
 
-namespace GameObjectInterface
-{    
-    class IAnimated
+namespace Kernel
+{
+    namespace Interfaces
     {
-        public:
-            virtual void setAnimation(Abstract::Animation* animation) = 0;
-            virtual void interruptAnimation() = 0;
-    };
+        class IAnimated
+        {
+            public:
+                virtual void setAnimation(Abstract::Animation* animation) = 0;
+                virtual void interruptAnimation() = 0;
+        };
+    }
 }

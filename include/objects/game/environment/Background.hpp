@@ -5,15 +5,15 @@
 
 namespace GameEnvironment
 {
-    class Background : public Abstract::GameObject, public GameObjectInterface::IDrawable
+    class Background : public Kernel::Abstract::GameObject, public Kernel::Interfaces::IDrawable
     {
         public:
             Background() {};
             ~Background() {};
 
-            void draw(Graphics::Window& context) override;
+            void draw(Kernel::Window& context) override;
             int setTexture(std::string texturePath) override;
-            void setCoordinates(GameObjectInterface::Coordinates coordinates) override;
+            void setCoordinates(Kernel::Interfaces::Coordinates coordinates) override;
 
         private:
             sf::Texture texture;

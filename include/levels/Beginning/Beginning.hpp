@@ -4,7 +4,7 @@
 
 namespace Levels
 {
-    class Beginning : public Abstract::Level
+    class Beginning : public Kernel::Abstract::Level
     {
         public:
             void setup();

@@ -1,10 +1,13 @@
 #pragma once
 
-namespace Physics
+namespace Kernel
 {
-    class PhysicObject
+    namespace Physics
     {
-        public:
-            virtual ~PhysicObject() = default;
-    };
+        class PhysicObject
+        {
+            public:
+                virtual ~PhysicObject() = default;
+        };
+    }
 }

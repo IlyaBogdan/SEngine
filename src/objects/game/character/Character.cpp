@@ -4,16 +4,16 @@
 
 using namespace Abstract;
 
-void Character::draw(Graphics::Window& context) {
+void Character::draw(Kernel::Window& context) {
     if (this->moving) {
         float x = this->coordinates.x, y = this->coordinates.y;
-        if (this->direction == GameObjectInterface::Direction::RIGHT) {
+        if (this->direction == Kernel::Interfaces::Direction::RIGHT) {
             x += this->movingSpeed;
         } else {
             x -= this->movingSpeed;
         }
         
-        this->setCoordinates(GameObjectInterface::Coordinates{x, y});
+        this->setCoordinates(Kernel::Interfaces::Coordinates{x, y});
     }
     
     int rotateAngle = this->direction ? 0 : 180;
@@ -38,11 +38,11 @@ int Character::setTexture(std::string texturePath) {
     return 1;
 }
 
-void Character::setAnimation(Abstract::Animation* animation) {
+void Character::setAnimation(Kernel::Abstract::Animation* animation) {
     this->animation = animation;
 }
 
-void Character::setCoordinates(GameObjectInterface::Coordinates coordinates) {
+void Character::setCoordinates(Kernel::Interfaces::Coordinates coordinates) {
     this->coordinates = coordinates;
 }
 
@@ -50,7 +50,7 @@ void Character::interruptAnimation() {
     this->animation->stop();
 }
 
-void Character::moveTo(enum GameObjectInterface::Direction direction) {
+void Character::moveTo(enum Kernel::Interfaces::Direction direction) {
     this->direction = direction;
     this->moving = true;
 }

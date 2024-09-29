@@ -2,20 +2,23 @@
 
 #include "kernel/scene/Scene.hpp"
 
-namespace Abstract
+namespace Kernel
 {
-    class Level
+    namespace Abstract
     {
-        public:
-            virtual ~Level() = default;
+        class Level
+        {
+            public:
+                virtual ~Level() = default;
 
-            void setup();
-            void play();
-            void stop();
+                void setup();
+                void play();
+                void stop();
 
-        protected:
-            Scene* scene;
+            protected:
+                Scene* scene;
 
-            virtual void loadScene() = 0;
-    };
+                virtual void loadScene() = 0;
+        };
+    }
 }

@@ -14,7 +14,7 @@ sf::Clock jumpTimer;
 float jumpDuration = 2.f;
 float jumpSpeed = 60.f;
 float maxHeight = 100.f;
-GameObjectInterface::Coordinates startJump;
+Kernel::Interfaces::Coordinates startJump;
 
 Animations__MainCharacter::StandBy standByAnimation = Animations__MainCharacter::StandBy();
 Animations__MainCharacter::Moving movingAnimation = Animations__MainCharacter::Moving();
@@ -22,7 +22,7 @@ Animations__MainCharacter::Jump jumpAnimation = Animations__MainCharacter::Jump(
 Animations__MainCharacter::Fall fallAnimation = Animations__MainCharacter::Fall();
 
 MainCharacter::MainCharacter() {
-    this->coordinates = GameObjectInterface::Coordinates{100.f, 800.f};
+    this->coordinates = Kernel::Interfaces::Coordinates{100.f, 800.f};
     this->setAnimation(&standByAnimation);
     this->movingSpeed = 0.05f;
     this->onTheGround = true;
@@ -33,7 +33,7 @@ MainCharacter& MainCharacter::getInstance() {
     return mainCharacter;
 }
 
-void MainCharacter::setCoordinates(GameObjectInterface::Coordinates coordinates) {
+void MainCharacter::setCoordinates(Kernel::Interfaces::Coordinates coordinates) {
     if (coordinates.x < 100) {
         coordinates.x = 100;
     }
@@ -49,7 +49,7 @@ void MainCharacter::setCoordinates(GameObjectInterface::Coordinates coordinates)
     this->coordinates = coordinates;
 }
 
-void MainCharacter::moveTo(enum GameObjectInterface::Direction direction) {
+void MainCharacter::moveTo(enum Kernel::Interfaces::Direction direction) {
     Character::moveTo(direction);
     this->setAnimation(&movingAnimation);
 }

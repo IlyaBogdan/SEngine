@@ -2,11 +2,14 @@
 
 #include "kernel/objects/GameObject.hpp"
 
-namespace GameObjectInterface
+namespace Kernel
 {
-    class IInterractable
+    namespace Interfaces
     {
-        public:
-            virtual void interract(Abstract::GameObject* oponent) = 0;
-    };
+        class IInterractable
+        {
+            public:
+                virtual void interract(Abstract::GameObject* oponent) = 0;
+        };
+    }
 }

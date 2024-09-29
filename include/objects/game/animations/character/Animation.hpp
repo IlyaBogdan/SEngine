@@ -5,7 +5,7 @@
 
 namespace Animations__Character
 {
-    class Animation : public Animations::SpriteAnimation
+    class Animation : public Kernel::Animations::SpriteAnimation
     {
         public:
             Animation() {};

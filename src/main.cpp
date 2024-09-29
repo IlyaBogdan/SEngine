@@ -8,8 +8,8 @@
 
 int main() {
     // start setup
-    Graphics::Window& window = Graphics::Window::getInstance();
-    Event::EventManager& eventManager = Event::EventManager::getInstance();
+    Kernel::Window& window = Kernel::Window::getInstance();
+    Kernel::EventManager& eventManager = Kernel::EventManager::getInstance();
 
     window.setFullscreen(true);
     window.setFPS(60);
@@ -22,7 +22,7 @@ int main() {
     Character::MainCharacter& mainCharacter = Character::MainCharacter::getInstance();
     
     // scene setup
-    Scene scene = Scene();
+    Kernel::Scene scene = Kernel::Scene();
     scene.addObject(&background);
     scene.addObject(&mainCharacter);
 

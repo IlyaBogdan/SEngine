@@ -1,10 +1,14 @@
 #pragma once
 
-namespace Abstract
+namespace Kernel
 {
-    class GameObject
+    namespace Abstract
     {
-        public:
-            virtual ~GameObject() = default;
-    };
+        class GameObject
+        {
+            public:
+                virtual ~GameObject() = default;
+        };
+    }
+    
 }

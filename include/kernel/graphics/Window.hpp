@@ -1,7 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 
-namespace Graphics
+namespace Kernel
 {
     /**
      * Main context for graphics

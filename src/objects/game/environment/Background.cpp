@@ -3,7 +3,7 @@
 
 using namespace GameEnvironment;
 
-void Background::draw(Graphics::Window& context) {
+void Background::draw(Kernel::Window& context) {
     sf::Sprite sprite;
     sprite.setTexture(this->texture);
 
@@ -29,6 +29,6 @@ int Background::setTexture(std::string texturePath) {
     return 1;
 }
 
-void Background::setCoordinates(GameObjectInterface::Coordinates coordinates) {
+void Background::setCoordinates(Kernel::Interfaces::Coordinates coordinates) {
     
 }
