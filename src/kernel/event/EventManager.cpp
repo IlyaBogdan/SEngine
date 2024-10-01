@@ -11,7 +11,7 @@ EventManager& EventManager::getInstance() {
 void EventManager::handleEvent(Window& context) {
     sf::Event event;
     sf::Window* sfmlWindow = context.getContext();
-    Character::MainCharacter& mainCharacter = Character::MainCharacter::getInstance();
+
 
     while (sfmlWindow->pollEvent(event)) {
         if (event.type == sf::Event::Closed) sfmlWindow->close();
@@ -21,26 +21,26 @@ void EventManager::handleEvent(Window& context) {
             if (event.key.code == sf::Keyboard::Escape) sfmlWindow->close();
 
             if (event.key.code == sf::Keyboard::D) {
-                mainCharacter.moveTo(Interfaces::Direction::RIGHT);
+                //mainCharacter.moveTo(Interfaces::Direction::RIGHT);
             }
 
             if (event.key.code == sf::Keyboard::A) {
-                mainCharacter.moveTo(Interfaces::Direction::LEFT);
+                //mainCharacter.moveTo(Interfaces::Direction::LEFT);
             }
 
             if (event.key.code == sf::Keyboard::Space) {
-                mainCharacter.jump();
+                //mainCharacter.jump();
             }
         }
 
         if (event.type == sf::Event::KeyReleased) {
 
             if (event.key.code == sf::Keyboard::D) {
-                mainCharacter.stop();
+                //mainCharacter.stop();
             }
 
             if (event.key.code == sf::Keyboard::A) {
-                mainCharacter.stop();
+                //mainCharacter.stop();
             }
         }
 

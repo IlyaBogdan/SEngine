@@ -33,15 +33,16 @@ Window* Window::setFullscreen(bool fullscreen) {
     return this;
 }
 
-Window* Window::setFPS(int fps) {
-    this->fps = fps;
+Window* Window::setSize(int width, int height) {
+    this->width = width;
+    this->height = height;
     this->applySettings();
     return this;
 }
 
-Window* Window::setSize(int width, int height) {
-    this->width = width;
-    this->height = height;
+Window* Window::setFPS(int fps) {
+    this->fps = fps;
+    this->applySettings();
     return this;
 }
 
@@ -51,6 +52,5 @@ void Window::applySettings() {
     if (this->context) {
         delete this->context;
     }
-
     this->context = new sf::RenderWindow(videoMode, "Hello world!", style);
 }

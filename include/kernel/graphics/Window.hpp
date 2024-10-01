@@ -1,4 +1,5 @@
 #pragma once
+
 #include <SFML/Graphics.hpp>
 
 namespace Kernel
@@ -44,7 +45,6 @@ namespace Kernel
             Window();
             ~Window() {}
             Window(Window const&);
-            Window& operator= (Window const&);
 
             sf::RenderWindow* context;
             int width = 800;

@@ -1,5 +1,7 @@
 #pragma once
 
+#include "kernel/objects/GameObject.hpp"
+
 namespace Kernel
 {
     namespace Map
@@ -10,6 +12,9 @@ namespace Kernel
             public:
                 AbstractMap();
                 ~AbstractMap();
+
+            protected:
+                
         };
     }
 }

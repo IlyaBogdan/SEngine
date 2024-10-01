@@ -12,7 +12,6 @@ namespace Kernel
         private:
             EventManager() {};
             ~EventManager() {};
-            EventManager(EventManager const&);
-            EventManager& operator= (EventManager const&);            
+            EventManager(EventManager const&);            
     };
 }
