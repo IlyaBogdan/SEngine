@@ -17,10 +17,10 @@ namespace Character
             
         private:
             MainCharacter();
-
             ~MainCharacter() {}
             MainCharacter(MainCharacter const&);
             MainCharacter& operator= (MainCharacter const&);
+            
             bool onTheGround;
     };
 }

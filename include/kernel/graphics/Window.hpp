@@ -20,6 +20,13 @@ namespace Kernel
             Window* setFullscreen(bool fullscreen);
 
             /**
+             * Set window size
+             * @param width window width
+             * @param height window height
+             */
+            Window* setSize(int width, int height);
+
+            /**
              * Set framerate for context
              * @param fps
              */
@@ -40,6 +47,8 @@ namespace Kernel
             Window& operator= (Window const&);
 
             sf::RenderWindow* context;
+            int width = 800;
+            int height = 800;
             void applySettings();
             bool fullscreen = true;
             int fps = 60;

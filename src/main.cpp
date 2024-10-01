@@ -11,7 +11,7 @@ int main() {
     Kernel::Window& window = Kernel::Window::getInstance();
     Kernel::EventManager& eventManager = Kernel::EventManager::getInstance();
 
-    window.setFullscreen(true);
+    window.setFullscreen(false);
     window.setFPS(60);
 
     // Add background

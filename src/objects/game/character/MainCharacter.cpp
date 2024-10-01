@@ -70,7 +70,7 @@ void MainCharacter::jump() {
     float y = (jumpSpeed * time - (PHYSIC_G * pow(time, 2)) / 2) + startJump.y;
 
     if (time <= jumpDuration / 2) {
-        this->coordinates.y = y;
+        this->coordinates.y = -y;
         this->setAnimation(&jumpAnimation);
     } else if (time > jumpDuration / 2 && time <= jumpDuration) {
         this->coordinates.y = y;

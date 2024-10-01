@@ -27,6 +27,7 @@ namespace Abstract
         protected:
             bool moving = false;
             float movingSpeed;
+            bool animationPlaying = false;
             sf::Texture texture;
             Kernel::Abstract::Animation* animation;
             Kernel::Interfaces::Coordinates coordinates;
