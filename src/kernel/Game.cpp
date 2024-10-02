@@ -1,5 +1,6 @@
 #include "kernel/Game.hpp"
 #include "kernel/EventManager.hpp"
+#include "kernel/ui/Button.hpp"
 
 using namespace Kernel;
 
@@ -20,7 +21,7 @@ const bool Game::running() {
     return this->window->isOpen();
 }
 
-Game& Game::init() {
+Game& Game::getInstance() {
     static Game game;
     return game;
 }
@@ -30,6 +31,10 @@ void Game::update() {
 }
 
 void Game::render() {
+    UI::ButtonConfig buttonConfig{10, 10, 200, 50};
+    UI::Button button;
+    button.draw();
+
     this->window->display();
 }
 
@@ -79,4 +84,12 @@ void Game::loop() {
         this->update();
         this->render();
     }
+}
+bool Game::mouseInArea(Diapason area) {
+    int mouseX = sf::Mouse::getPosition(*this->window).x;
+    int mouseY = sf::Mouse::getPosition(*this->window).y;
+    bool crossX = mouseX >= area.xStart && mouseX <= area.xEnd;
+    bool crossY = mouseY >= area.yStart && mouseY <= area.yEnd;
+
+    return crossX && crossY;
 }
