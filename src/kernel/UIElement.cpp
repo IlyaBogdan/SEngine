@@ -1,5 +1,5 @@
 #include "kernel/UIElement.hpp"
-#include "kernel/Game.hpp"
+#include "kernel/GameEngine.hpp"
 
 using namespace Kernel;
 
@@ -10,7 +10,7 @@ const bool UIElement::mouseOnElement() {
     area.yStart = this->y;
     area.yEnd = this->y + this->height;
 
-    Game& game = Game::getInstance();
+    GameEngine& game = GameEngine::getInstance();
 
     return game.mouseInArea(area);
 }

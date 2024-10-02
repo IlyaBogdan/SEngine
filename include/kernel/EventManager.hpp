@@ -1,6 +1,6 @@
 #pragma once
 
-#include "kernel/Game.hpp"
+#include "kernel/GameEngine.hpp"
 
 namespace Kernel
 {

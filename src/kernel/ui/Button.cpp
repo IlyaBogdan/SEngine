@@ -1,5 +1,5 @@
 #include "kernel/ui/Button.hpp"
-#include "kernel/Game.hpp"
+#include "kernel/GameEngine.hpp"
 #include "SFML/Graphics.hpp"
 
 using namespace Kernel::UI;
@@ -37,7 +37,7 @@ void Button::renderText() {
 
     text.setPosition(sf::Vector2f(xMargin, yMargin));
 
-    Kernel::Game& game = Kernel::Game::getInstance();
+    Kernel::GameEngine& game = Kernel::GameEngine::getInstance();
     game.window->draw(text);
 }
 
@@ -50,7 +50,7 @@ void Button::draw() {
     button.setOutlineColor(sf::Color::Green);
     button.setOutlineThickness(1.f);
 
-    Kernel::Game& game = Kernel::Game::getInstance();
+    Kernel::GameEngine& game = Kernel::GameEngine::getInstance();
 
     if (this->mouseOnElement()) {
         button.setFillColor(sf::Color::Green);

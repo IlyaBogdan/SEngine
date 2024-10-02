@@ -1,6 +1,6 @@
-#include "kernel/Game.hpp"
+#include "kernel/GameEngine.hpp"
 
-Kernel::Game& game = Kernel::Game::getInstance();
+Kernel::GameEngine& game = Kernel::GameEngine::getInstance();
 
 int main() {
     game.loop();
