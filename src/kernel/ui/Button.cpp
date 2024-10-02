@@ -33,9 +33,9 @@ void Button::renderText() {
     int textWidth = text.getLocalBounds().width;
 
     int yMargin = this->y + ((this->height - textHeight) / 2);
-    int xMargin = this->y + ((this->width - textWidth) / 2);
+    int xMargin = this->x + ((this->width - textWidth) / 2);
 
-    text.setPosition(sf::Vector2f(yMargin, xMargin));
+    text.setPosition(sf::Vector2f(xMargin, yMargin));
 
     Kernel::Game& game = Kernel::Game::getInstance();
     game.window->draw(text);

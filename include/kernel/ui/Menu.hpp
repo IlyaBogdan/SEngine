@@ -12,8 +12,8 @@ namespace Kernel::UI
     class Menu : public UIElement
     {
         public:
-            Menu();
-            virtual ~Menu();
+            Menu() {};
+            virtual ~Menu() = 0 {};
 
             void draw() override;
 

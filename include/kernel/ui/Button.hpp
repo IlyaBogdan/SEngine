@@ -13,12 +13,12 @@ namespace Kernel::UI
     {
         public:
             Button();
-            Button(ButtonConfig config);
+            explicit Button(ButtonConfig config);
             virtual ~Button() {};
 
             UITextConfig text;
 
-            void draw() override;
+            virtual void draw() override;
 
         protected:
             virtual void renderText();

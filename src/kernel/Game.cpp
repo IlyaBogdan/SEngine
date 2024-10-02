@@ -1,6 +1,6 @@
 #include "kernel/Game.hpp"
 #include "kernel/EventManager.hpp"
-#include "kernel/ui/Menu.hpp"
+#include "menu/start/StartMenu.hpp"
 #include <iostream>
 
 using namespace Kernel;
@@ -32,7 +32,7 @@ void Game::update() {
 }
 
 void Game::render() {
-    UI::Menu menu;
+    GameInstance::Menu::StartMenu menu;
     menu.draw();
 
     this->window->display();
