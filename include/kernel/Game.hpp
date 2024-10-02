@@ -18,7 +18,9 @@ namespace Kernel
             void loop();
 
         private:
+            bool running = true;
             Window& window = Window::getInstance();
             EventManager& eventManager = EventManager::getInstance();
     };
 }
+

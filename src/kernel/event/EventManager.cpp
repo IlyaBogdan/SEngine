@@ -12,7 +12,6 @@ void EventManager::handleEvent(Window& context) {
     sf::Event event;
     sf::Window* sfmlWindow = context.getContext();
 
-
     while (sfmlWindow->pollEvent(event)) {
         if (event.type == sf::Event::Closed) sfmlWindow->close();
 

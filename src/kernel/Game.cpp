@@ -1,4 +1,5 @@
 #include "kernel/Game.hpp"
+#include "kernel/Menu.hpp"
 
 using namespace Kernel;
 
@@ -24,13 +25,16 @@ void Game::render() {
 
 }
 
-void Game::loop() {    
-    while (this->window.getContext()->isOpen()) {
-        
-        this->eventManager.handleEvent(this->window);
+void Game::loop() {
+    Kernel::Menu menu = Menu();
+    sf::RenderWindow* context = this->window.getContext();
 
+    while (context->isOpen()) {
+
+        this->eventManager.handleEvent(this->window);
+        menu.draw(this->window);
         // draw loop
-        this->window.getContext()->clear();
+        context->clear();
 		this->window.render();
 	}
 }
