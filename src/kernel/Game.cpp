@@ -1,6 +1,7 @@
 #include "kernel/Game.hpp"
 #include "kernel/EventManager.hpp"
-#include "kernel/ui/Button.hpp"
+#include "kernel/ui/Menu.hpp"
+#include <iostream>
 
 using namespace Kernel;
 
@@ -31,9 +32,8 @@ void Game::update() {
 }
 
 void Game::render() {
-    UI::ButtonConfig buttonConfig{10, 10, 200, 50};
-    UI::Button button;
-    button.draw();
+    UI::Menu menu;
+    menu.draw();
 
     this->window->display();
 }

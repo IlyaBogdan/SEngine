@@ -6,7 +6,7 @@ namespace Kernel::UI
 {
     struct ButtonConfig : UIElementConfig
     {
-
+        UITextConfig text;
     };
 
     class Button : public UIElement
@@ -16,7 +16,12 @@ namespace Kernel::UI
             Button(ButtonConfig config);
             virtual ~Button() {};
 
+            UITextConfig text;
+
             void draw() override;
+
+        protected:
+            virtual void renderText();
     };
 }
 

@@ -16,14 +16,36 @@ Button::Button(ButtonConfig config) {
     this->height = config.height;
     this->x = config.x;
     this->y = config.y;
+    this->text = config.text;
+}
+
+void Button::renderText() {
+    sf::Text text;
+    sf::Font font;
+    font.loadFromFile("recources/fonts/arial.ttf");
+    text.setFont(font);
+    text.setString(this->text.text);
+    text.setCharacterSize(this->text.fontSize);
+    text.setFillColor(this->text.color);
+    text.setStyle(this->text.style);
+    
+    int textHeight = text.getLocalBounds().height;
+    int textWidth = text.getLocalBounds().width;
+
+    int yMargin = this->y + ((this->height - textHeight) / 2);
+    int xMargin = this->y + ((this->width - textWidth) / 2);
+
+    text.setPosition(sf::Vector2f(yMargin, xMargin));
+
+    Kernel::Game& game = Kernel::Game::getInstance();
+    game.window->draw(text);
 }
 
 void Button::draw() {
     sf::RectangleShape button;
-    int marginX = 10, marginY = 10, width = 200, height = 50;
 
-    button.setPosition(sf::Vector2f(marginX, marginY));
-    button.setSize(sf::Vector2f(width, height));
+    button.setPosition(sf::Vector2f(this->x, this->y));
+    button.setSize(sf::Vector2f(this->width, this->height));
     button.setFillColor(sf::Color::Red);
     button.setOutlineColor(sf::Color::Green);
     button.setOutlineThickness(1.f);
@@ -36,4 +58,5 @@ void Button::draw() {
     }
 
     game.window->draw(button);
+    this->renderText();
 }

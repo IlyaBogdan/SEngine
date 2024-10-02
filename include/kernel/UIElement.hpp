@@ -12,6 +12,15 @@ namespace Kernel
         int height;
     };
 
+    struct UITextConfig
+    {
+        std::string text;
+        int fontSize;
+        sf::Color color;
+        sf::Uint32 style;
+    };
+    
+
     class UIElement : public Interfaces::IDrawable
     {
         public:
