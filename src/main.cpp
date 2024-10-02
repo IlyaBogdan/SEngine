@@ -1,9 +1,8 @@
 #include "kernel/Game.hpp"
 
-Kernel::Game game = Kernel::Game();
+Kernel::Game& game = Kernel::Game::init();
 
 int main() {
-    game.init();
     game.loop();
 
     return 0;

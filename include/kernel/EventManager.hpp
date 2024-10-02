@@ -1,5 +1,6 @@
 #pragma once
-#include "kernel/graphics/Window.hpp"
+
+#include "kernel/Game.hpp"
 
 namespace Kernel
 {
@@ -7,11 +8,13 @@ namespace Kernel
     {
         public:
             static EventManager& getInstance();
-            void handleEvent(Window& context);
+
+            void handleEvent();
 
         private:
             EventManager() {};
             ~EventManager() {};
-            EventManager(EventManager const&);            
+            EventManager(EventManager const&);  
     };
 }
+

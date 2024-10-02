@@ -4,25 +4,23 @@
 
 namespace Kernel
 {
-    class Game
+    class Window
     {
         public:
-            static Game& init();
+            static Window& getInstance();
 
             void update();
             void render();
-            void poolEvents();
-            void loop();
 
         private:
-            Game();
-            ~Game();
-            Game(Game const&);
-
-            const bool running();
+            Window();
+            ~Window();
+            Window(Window const&);
 
             sf::RenderWindow* window;
             sf::Event event;
+
+            bool running = true;
     };
 }
 
