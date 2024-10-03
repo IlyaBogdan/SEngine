@@ -16,6 +16,7 @@ namespace Kernel::UI
             virtual ~Menu() = 0 {};
 
             void draw() override;
+            virtual void handleClick();
 
             std::vector<UIElement* > elements;
     };

@@ -9,6 +9,8 @@ namespace GameInstance::Menu
         public:
             StartMenu();
             virtual ~StartMenu() {};
+
+            void handleClick() override;
     };
 }
 

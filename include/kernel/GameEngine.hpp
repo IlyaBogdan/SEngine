@@ -43,6 +43,10 @@ namespace Kernel
             void initKeyboardHandlers();
 
             bool mouseInArea(Diapason area);
+
+            GameEngine* setMouseHandlers(MouseHandlerMap mouseHandlers);
+            GameEngine* setKeyboardHandlers(KeyboardHandlerMap keyboardHandlers);
+
             sf::RenderWindow* window;
         private:
             GameEngine();

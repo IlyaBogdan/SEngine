@@ -33,11 +33,39 @@ void GameEngine::initKeyboardHandlers() {
     };
 
     eventHandlers.keyboardEventHandlers = keyboardHandlers;
+
+    MouseHandlerMap mouseHandlerMap;
+    mouseHandlerMap.handlers_pressed = {
+        { sf::Mouse::Left, [this]() { this->window->close(); }},
+        { sf::Mouse::Right, [this]() { this->window->close(); }},
+    };
+
+    mouseHandlerMap.handlers_released = {
+        { sf::Mouse::Left, [this]() {
+
+        }},
+        { sf::Mouse::Right, [this]() {
+
+        }},
+    };
+
+    eventHandlers.mouseEventHandlers = mouseHandlerMap;
+
     this->eventHandlers = eventHandlers;
 }
 
 GameEngine::~GameEngine() {
     delete this->window;
+}
+
+GameEngine* GameEngine::setMouseHandlers(MouseHandlerMap mouseHandlers) {
+    this->eventHandlers.mouseEventHandlers = mouseHandlers;
+    return this;
+}
+
+GameEngine* GameEngine::setKeyboardHandlers(KeyboardHandlerMap keyboardHandlers) {
+    this->eventHandlers.keyboardEventHandlers = keyboardHandlers;
+    return this;
 }
 
 const bool GameEngine::running() {
@@ -75,6 +103,16 @@ void GameEngine::poolEvents() {
 
         if (this->event.type == sf::Event::KeyReleased) {
             eventHandlers.keyboardEventHandlers.handlers_released[this->event.key.code]();
+        }
+
+        // mouse
+
+        if (this->event.type == sf::Event::MouseButtonPressed) {
+            eventHandlers.mouseEventHandlers.handlers_pressed[this->event.key.code]();
+        }
+
+        if (this->event.type == sf::Event::MouseButtonReleased) {
+            eventHandlers.mouseEventHandlers.handlers_released[this->event.key.code]();
         }
     }
 }
