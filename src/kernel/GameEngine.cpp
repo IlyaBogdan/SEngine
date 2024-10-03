@@ -98,21 +98,29 @@ void GameEngine::poolEvents() {
 
         // keyboard
         if (this->event.type == sf::Event::KeyPressed) {
-            eventHandlers.keyboardEventHandlers.handlers_pressed[this->event.key.code]();
+            if (eventHandlers.handlerDefined(eventHandlers.keyboardEventHandlers.handlers_pressed, this->event.key.code)) {
+                eventHandlers.keyboardEventHandlers.handlers_pressed[this->event.key.code]();
+            }
         }
 
         if (this->event.type == sf::Event::KeyReleased) {
-            eventHandlers.keyboardEventHandlers.handlers_released[this->event.key.code]();
+            if (eventHandlers.handlerDefined(eventHandlers.keyboardEventHandlers.handlers_released, this->event.key.code)) {
+                eventHandlers.keyboardEventHandlers.handlers_released[this->event.key.code]();
+            }
         }
 
         // mouse
 
         if (this->event.type == sf::Event::MouseButtonPressed) {
-            eventHandlers.mouseEventHandlers.handlers_pressed[this->event.key.code]();
+            if (eventHandlers.handlerDefined(eventHandlers.mouseEventHandlers.handlers_pressed, this->event.key.code)) {
+                eventHandlers.mouseEventHandlers.handlers_pressed[this->event.key.code]();
+            }
         }
 
         if (this->event.type == sf::Event::MouseButtonReleased) {
-            eventHandlers.mouseEventHandlers.handlers_released[this->event.key.code]();
+            if (eventHandlers.handlerDefined(eventHandlers.mouseEventHandlers.handlers_released, this->event.key.code)) {
+                eventHandlers.mouseEventHandlers.handlers_released[this->event.key.code]();
+            }
         }
     }
 }

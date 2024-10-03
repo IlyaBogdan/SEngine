@@ -27,6 +27,10 @@ namespace Kernel
     };
 
     struct EventHandlers {
+        bool handlerDefined(EventHandlerMap map, int key) {
+            return map.find(key) != map.end();
+        }
+
         MouseHandlerMap mouseEventHandlers;
         KeyboardHandlerMap keyboardEventHandlers;
     };
