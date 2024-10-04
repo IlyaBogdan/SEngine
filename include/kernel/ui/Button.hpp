@@ -1,7 +1,6 @@
 #pragma once
 
 #include "kernel/UIElement.hpp"
-#include "kernel/interfaces/IClickable.hpp"
 
 namespace Kernel::UI
 {
@@ -10,19 +9,19 @@ namespace Kernel::UI
         UITextConfig text;
     };
 
-    class Button : public UIElement, public Interfaces::IClickable
+    class Button : public UIElement
     {
         public:
             Button();
             explicit Button(ButtonConfig config);
-            virtual ~Button() {};
 
             UITextConfig text;
 
             virtual void draw() override;
-            void onClick() override {};
+            virtual void onClick() override {};
 
         protected:
+            sf::Shape* shape;
             virtual void renderText();
     };
 }

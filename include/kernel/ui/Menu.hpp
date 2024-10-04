@@ -13,10 +13,10 @@ namespace Kernel::UI
     {
         public:
             Menu() {};
-            virtual ~Menu() = 0 {};
+            virtual ~Menu() = 0;
 
             void draw() override;
-            virtual void handleClick();
+            virtual void onClick() override;
 
             std::vector<UIElement* > elements;
     };

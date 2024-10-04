@@ -3,6 +3,10 @@
 
 using namespace Kernel;
 
+UIElement::~UIElement() {
+    
+}
+
 const bool UIElement::mouseOnElement() {
     Diapason area;
     area.xStart = this->x;

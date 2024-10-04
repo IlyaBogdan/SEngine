@@ -1,6 +1,8 @@
 #include "kernel/GameEngine.hpp"
 #include "menu/shared/MenuButton.hpp"
 #include "menu/start/StartMenu.hpp"
+#include "menu/start/elements/ExitButton.hpp"
+#include "menu/start/elements/StartButton.hpp"
 #include <iostream>
 
 using namespace GameInstance::Menu;
@@ -19,8 +21,8 @@ Elements::MenuButton* startButton() {
     textConfig.text = "Start";
 
     buttonConfig.text = textConfig;
+    Elements::MenuButton* button = new GameInstance::Menu::Elements::StartButton(buttonConfig);
 
-    Elements::MenuButton* button = new Elements::MenuButton(buttonConfig);
     return button;
 }
 
@@ -39,7 +41,8 @@ Elements::MenuButton* exitButton() {
 
     buttonConfig.text = textConfig;
 
-    Elements::MenuButton* button = new Elements::MenuButton(buttonConfig);
+    Elements::MenuButton* button = new GameInstance::Menu::Elements::ExitButton(buttonConfig);
+
     return button;
 }
 
@@ -50,31 +53,4 @@ StartMenu::StartMenu() {
 
     this->elements.push_back(startBtn);
     this->elements.push_back(exitBtn);
-
-    Kernel::MouseHandlerMap mouseHandlerMap;
-    mouseHandlerMap.handlers_pressed = {
-        { sf::Mouse::Left, [this]() {
-            std::cout << "Left click working" << std::endl;
-        }},
-        { sf::Mouse::Right, []() {
-            Kernel::GameEngine& game = Kernel::GameEngine::getInstance();
-            game.window->close();
-            std::cout << "Right click working" << std::endl;
-        }},
-    };
-
-    mouseHandlerMap.handlers_released = {
-        { sf::Mouse::Left, [this]() {
-            std::cout << "Left click release" << std::endl;
-        }},
-        { sf::Mouse::Right, [this]() {
-            std::cout << "Right click release" << std::endl;
-        }},
-    };
-    Kernel::GameEngine& game = Kernel::GameEngine::getInstance();
-    game.setMouseHandlers(mouseHandlerMap);
-}
-
-void StartMenu::handleClick() {
-    
 }

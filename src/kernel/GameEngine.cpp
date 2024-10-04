@@ -6,6 +6,7 @@
 using namespace Kernel;
 
 EventManager& eventManager = EventManager::getInstance();
+GameInstance::Menu::StartMenu menu;
 
 GameEngine::GameEngine() {
     int windowWidth = 800;
@@ -82,7 +83,6 @@ void GameEngine::update() {
 }
 
 void GameEngine::render() {
-    GameInstance::Menu::StartMenu menu;
     menu.draw();
 
     this->window->display();

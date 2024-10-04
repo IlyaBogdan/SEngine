@@ -57,6 +57,16 @@ void Button::draw() {
         button.setOutlineColor(sf::Color::Cyan);
     }
 
+    this->shape = &button;
     game.window->draw(button);
     this->renderText();
 }
+
+// bool Button::mouseOnElement() {
+//     GameEngine& game = GameEngine::getInstance();
+
+//     sf::Vector2i mousePosition = sf::Mouse::getPosition(*game.window);
+//     sf::Vector2f mousePosView = game.window->mapPixelToCoords(mousePosition);
+
+//     return this->shape->getGlobalBounds().contains(mousePosView);
+// }

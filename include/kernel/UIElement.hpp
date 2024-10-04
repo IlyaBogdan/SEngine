@@ -1,5 +1,6 @@
 #pragma once
 
+#include "kernel/interfaces/IClickable.hpp"
 #include "kernel/interfaces/IDrawable.hpp"
 
 namespace Kernel
@@ -21,16 +22,17 @@ namespace Kernel
     };
     
 
-    class UIElement : public Interfaces::IDrawable
+    class UIElement : public Interfaces::IDrawable, public Interfaces::IClickable
     {
         public:
             UIElement() {};
-            virtual ~UIElement() = 0 {};
+            virtual ~UIElement() = 0;
+            virtual void onClick() override {};
 
             int x, y;
             int width, height;
 
-            const bool mouseOnElement();
+            const bool mouseOnElement();            
     };
 }
 
