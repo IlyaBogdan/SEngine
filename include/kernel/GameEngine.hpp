@@ -44,7 +44,6 @@ namespace Kernel
             void render();
             void poolEvents();
             void loop();
-            void initKeyboardHandlers();
 
             bool mouseInArea(Diapason area);
 

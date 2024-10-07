@@ -11,48 +11,8 @@ GameInstance::Menu::StartMenu menu;
 GameEngine::GameEngine() {
     int windowWidth = 800;
     int windowHeight = 640;
-    this->initKeyboardHandlers();
 
     this->window = new sf::RenderWindow(sf::VideoMode(windowWidth, windowHeight), "GameEngine 1", sf::Style::Close);
-}
-
-void GameEngine::initKeyboardHandlers() {
-    EventHandlers eventHandlers;
-
-    KeyboardHandlerMap keyboardHandlers;
-
-    keyboardHandlers.handlers_pressed = {
-        { sf::Keyboard::Escape, [this]() { this->window->close(); }},
-        { sf::Keyboard::D, [this]() { this->window->close(); }},
-        { sf::Keyboard::A, [this]() { this->window->close(); }},
-        { sf::Keyboard::Space, [this]() { this->window->close(); }},
-    };
-
-    keyboardHandlers.handlers_released = {
-        { sf::Keyboard::D, [this]() { this->window->close(); }},
-        { sf::Keyboard::A, [this]() { this->window->close(); }},
-    };
-
-    eventHandlers.keyboardEventHandlers = keyboardHandlers;
-
-    MouseHandlerMap mouseHandlerMap;
-    mouseHandlerMap.handlers_pressed = {
-        { sf::Mouse::Left, [this]() { this->window->close(); }},
-        { sf::Mouse::Right, [this]() { this->window->close(); }},
-    };
-
-    mouseHandlerMap.handlers_released = {
-        { sf::Mouse::Left, [this]() {
-
-        }},
-        { sf::Mouse::Right, [this]() {
-
-        }},
-    };
-
-    eventHandlers.mouseEventHandlers = mouseHandlerMap;
-
-    this->eventHandlers = eventHandlers;
 }
 
 GameEngine::~GameEngine() {
@@ -132,6 +92,7 @@ void GameEngine::loop() {
         this->render();
     }
 }
+
 bool GameEngine::mouseInArea(Diapason area) {
     int mouseX = sf::Mouse::getPosition(*this->window).x;
     int mouseY = sf::Mouse::getPosition(*this->window).y;

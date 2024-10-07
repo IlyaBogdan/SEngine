@@ -43,29 +43,6 @@ void Menu::draw() {
     this->onClick();
 }
 
-// Kernel::MouseHandlerMap mouseHandlerMap;
-//     mouseHandlerMap.handlers_pressed = {
-//         { sf::Mouse::Left, [this]() {
-//             std::cout << "Left click working" << std::endl;
-//         }},
-//         { sf::Mouse::Right, []() {
-//             Kernel::GameEngine& game = Kernel::GameEngine::getInstance();
-//             game.window->close();
-//             std::cout << "Right click working" << std::endl;
-//         }},
-//     };
-
-//     mouseHandlerMap.handlers_released = {
-//         { sf::Mouse::Left, [this]() {
-//             std::cout << "Left click release" << std::endl;
-//         }},
-//         { sf::Mouse::Right, [this]() {
-//             std::cout << "Right click release" << std::endl;
-//         }},
-//     };
-//     Kernel::GameEngine& game = Kernel::GameEngine::getInstance();
-//     game.setMouseHandlers(mouseHandlerMap);
-
 void Kernel::UI::Menu::onClick() {
     
 }

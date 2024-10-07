@@ -26,13 +26,13 @@ namespace Kernel
     {
         public:
             UIElement() {};
-            virtual ~UIElement() = 0;
+            virtual ~UIElement();
             virtual void onClick() override {};
 
             int x, y;
             int width, height;
 
-            const bool mouseOnElement();            
+            const bool mouseOnElement();
     };
 }
 

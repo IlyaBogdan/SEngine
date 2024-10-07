@@ -21,7 +21,6 @@ namespace Kernel::UI
             virtual void onClick() override {};
 
         protected:
-            sf::Shape* shape;
             virtual void renderText();
     };
 }

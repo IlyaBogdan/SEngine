@@ -13,8 +13,5 @@ namespace GameInstance::Menu::Elements
         public:
             //virtual void draw() override;
             virtual void onClick() override;
-
-        protected:
-            sf::Shape* shape;
     };
 }

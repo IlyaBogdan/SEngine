@@ -15,6 +15,5 @@ namespace GameInstance::Menu::Elements
             virtual void onClick() override;
 
         protected:
-            sf::Shape* shape;
     };
 }
