@@ -2,6 +2,7 @@
 
 #include "kernel/interfaces/IControlling.hpp"
 #include "objects/character/Character.hpp"
+#include "kernel/Animation.hpp"
 
 namespace GameInstance::Objects
 {
@@ -13,5 +14,7 @@ namespace GameInstance::Objects
             
             void draw() override;
             void moveTo(Kernel::Interfaces::MovingDirection direction) override;
+
+            Kernel::Animation* animation;
     };
 }

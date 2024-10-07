@@ -12,5 +12,9 @@ namespace GameInstance::Objects
             Character() {};
             virtual ~Character() {};
             
+            void setAnimation(Kernel::Animation* animation) override;
+
+        protected:
+            Kernel::Animation* animation;
     };
 }
