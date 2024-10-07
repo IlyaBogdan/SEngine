@@ -1,12 +1,14 @@
 #include "kernel/GameEngine.hpp"
 #include "menu/start/StartMenu.hpp"
 #include "levels/HelloWorld/HelloWorld.hpp"
+#include "objects/main_character/MainCharacter.hpp"
 #include <iostream>
 
 using namespace Kernel;
 
 //GameInstance::Menu::StartMenu menu;
 GameInstance::Levels::HelloWorld helloWorld_Level;
+GameInstance::Objects::MainCharacter mainCharacter;
 
 GameEngine::GameEngine() {
     int windowWidth = 800;
@@ -43,7 +45,10 @@ void GameEngine::update() {
 }
 
 void GameEngine::render() {
-    helloWorld_Level.run();
+    //helloWorld_Level.run();
+    this->window->clear();
+    
+    mainCharacter.draw();
 
     this->window->display();
 }
