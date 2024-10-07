@@ -1,12 +1,12 @@
 #include "kernel/GameEngine.hpp"
-#include "kernel/EventManager.hpp"
 #include "menu/start/StartMenu.hpp"
+#include "levels/HelloWorld/HelloWorld.hpp"
 #include <iostream>
 
 using namespace Kernel;
 
-EventManager& eventManager = EventManager::getInstance();
-GameInstance::Menu::StartMenu menu;
+//GameInstance::Menu::StartMenu menu;
+GameInstance::Levels::HelloWorld helloWorld_Level;
 
 GameEngine::GameEngine() {
     int windowWidth = 800;
@@ -43,7 +43,7 @@ void GameEngine::update() {
 }
 
 void GameEngine::render() {
-    menu.draw();
+    helloWorld_Level.run();
 
     this->window->display();
 }
