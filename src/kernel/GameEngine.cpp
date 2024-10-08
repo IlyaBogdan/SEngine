@@ -13,8 +13,9 @@ GameInstance::Objects::MainCharacter& mainCharacter = GameInstance::Objects::Mai
 GameEngine::GameEngine() {
     int windowWidth = 800;
     int windowHeight = 640;
-
-    this->window = new sf::RenderWindow(sf::VideoMode(windowWidth, windowHeight), "GameEngine 1", sf::Style::Close);
+    
+    this->window = new sf::RenderWindow(sf::VideoMode::getDesktopMode(), "GameEngine 1", sf::Style::Fullscreen);
+    this->window->setFramerateLimit(120);
 }
 
 GameEngine::~GameEngine() {
@@ -45,9 +46,8 @@ void GameEngine::update() {
 }
 
 void GameEngine::render() {
-    helloWorld_Level.run();
     this->window->clear();
-    
+    helloWorld_Level.run();
     mainCharacter.draw();
 
     this->window->display();
@@ -61,7 +61,6 @@ void GameEngine::poolEvents() {
             this->window->close();
         }
 
-        // keyboard
         if (this->event.type == sf::Event::KeyPressed) {
             if (eventHandlers.handlerDefined(eventHandlers.keyboardEventHandlers.handlers_pressed, this->event.key.code)) {
                 eventHandlers.keyboardEventHandlers.handlers_pressed[this->event.key.code]();

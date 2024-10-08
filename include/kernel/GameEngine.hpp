@@ -7,6 +7,9 @@
 
 namespace Kernel
 {
+    /**
+     * @brief Spatial range
+     */
     struct Diapason
     {
         int xStart;
@@ -15,17 +18,30 @@ namespace Kernel
         int yEnd;
     };
 
+    /**
+     * @brief Controllers event handler map
+     */
     using EventHandlerMap = std::unordered_map<int, std::function<void()>>;
+
+    /**
+     * @brief Handlers for keyboard
+     */
     struct KeyboardHandlerMap {
         EventHandlerMap handlers_pressed;
         EventHandlerMap handlers_released;
     };
 
+    /**
+     * @brief Handlers for mouse
+     */
     struct MouseHandlerMap {
         EventHandlerMap handlers_pressed;
         EventHandlerMap handlers_released;
     };
 
+    /**
+     * @brief All handlers for all controllers
+     */
     struct EventHandlers {
         bool handlerDefined(EventHandlerMap map, int key) {
             return map.find(key) != map.end();
@@ -35,6 +51,11 @@ namespace Kernel
         KeyboardHandlerMap keyboardEventHandlers;
     };
 
+    /**
+     * @brief Main class for game
+     * 
+     * 
+     */
     class GameEngine
     {
         public:

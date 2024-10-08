@@ -20,13 +20,18 @@ void Animation::play() {
     this->draw();
 }
 
+void Animation::play(Kernel::Interfaces::Coordinate coordinate) {
+    this->coordinate = coordinate;
+    this->draw();
+}
+
 void Animation::draw() {
     std::string spritePath = this->texturePath + "/step_" + std::to_string(animationStep) + ".png";
     if (this->setTexture(spritePath)) {
         sf::Sprite sprite;
         sprite.setTexture(this->texture);
         sprite.setOrigin(sf::Vector2f(25.f, 25.f));
-        sprite.setPosition(sf::Vector2f(100.f, 500.f)); // absolute position
+        sprite.setPosition(sf::Vector2f(this->coordinate.x, this->coordinate.y)); // absolute position
         sprite.move(sf::Vector2f(5.f, 10.f)); // offset relative to the current position
 
         // scale

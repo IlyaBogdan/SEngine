@@ -11,6 +11,7 @@ namespace Kernel
             virtual ~Animation() = 0 {};
 
             void play();
+            void play(Kernel::Interfaces::Coordinate coordinate);
             void draw() override;
 
             void setXrotation(int x_rotation);
@@ -23,6 +24,7 @@ namespace Kernel
             int maxStep = 1;
             int x_rotation = 0;
             std::string texturePath;
+            Kernel::Interfaces::Coordinate coordinate;
 
             int Animation::setTexture(std::string texturePath);
     };
