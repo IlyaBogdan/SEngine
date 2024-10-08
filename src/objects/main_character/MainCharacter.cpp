@@ -1,8 +1,10 @@
 #include "objects/main_character/MainCharacter.hpp"
 #include "objects/main_character/animations/StandBy.hpp"
+#include "objects/main_character/animations/Moving.hpp"
 #include "kernel/interfaces/IDrawable.hpp"
 
 GameInstance::Animations::StandBy standByAnimation;
+GameInstance::Animations::Moving movingAnimation;
 
 using namespace GameInstance::Objects;
 
@@ -25,7 +27,10 @@ void MainCharacter::draw() {
 }
 
 void MainCharacter::moveTo(Kernel::Interfaces::MovingDirection direction) {
-
+    this->animation = &movingAnimation;
+    int x_rotation = direction.x == Kernel::Interfaces::XDirection::LEFT ? 180 : 0;
+    this->animation->setXrotation(x_rotation);
+    standByAnimation.setXrotation(x_rotation);
 }
 
 void MainCharacter::stop() {

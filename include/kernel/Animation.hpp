@@ -12,6 +12,8 @@ namespace Kernel
 
             void play();
             void draw() override;
+
+            void setXrotation(int x_rotation);
         
         protected:
             sf::Texture texture;
@@ -19,6 +21,7 @@ namespace Kernel
             int spriteRenderInterval = 300;
             int animationStep = 0;
             int maxStep = 1;
+            int x_rotation = 0;
             std::string texturePath;
 
             int Animation::setTexture(std::string texturePath);

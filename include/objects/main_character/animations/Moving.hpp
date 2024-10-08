@@ -4,10 +4,10 @@
 
 namespace GameInstance::Animations
 {
-    class StandBy : public Kernel::Animation
+    class Moving : public Kernel::Animation
     {
         public:
-            StandBy();
-            ~StandBy() {};
+            Moving();
+            ~Moving() {};
     };
 }

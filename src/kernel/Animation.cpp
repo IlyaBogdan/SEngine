@@ -30,10 +30,12 @@ void Animation::draw() {
         sprite.move(sf::Vector2f(5.f, 10.f)); // offset relative to the current position
 
         // scale
-        sprite.setScale(sf::Vector2f(1.5f, 1.5f)); // absolute scale factor
-        sprite.scale(sf::Vector2f(1.5f, 1.5f)); // factor relative to the current scale
+        float scale_x = this->x_rotation == 180 ? -1.f : 1.f;
+        float scale_y = 1.f;
 
-        //sprite.setScale(scaleX, scaleY);
+        sprite.setScale(sf::Vector2f(scale_x, scale_y)); // absolute scale factor
+        sprite.scale(sf::Vector2f(2.f, 2.f)); // absolute scale factor
+
 
         Kernel::GameEngine& game = Kernel::GameEngine::getInstance();
         game.window->draw(sprite);
@@ -48,4 +50,8 @@ void Animation::draw() {
         this->timer.restart();
         return;
     }
+}
+
+void Animation::setXrotation(int x_rotation) {
+    this->x_rotation = x_rotation;
 }
