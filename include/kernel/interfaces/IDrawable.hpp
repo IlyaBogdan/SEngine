@@ -4,6 +4,12 @@
 
 namespace Kernel::Interfaces
 {
+    struct Coordinate
+    {
+        float x;
+        float y;
+    };
+
     class IDrawable
     {
         public:

@@ -11,7 +11,7 @@ namespace Kernel
             Level();
             virtual ~Level() = 0 {};
             
-            void run();
+            virtual void run();
             void pause();
             void exit();
 

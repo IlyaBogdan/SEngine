@@ -6,15 +6,20 @@
 
 namespace GameInstance::Objects
 {
-    class MainCharacter : public Character, Kernel::Interfaces::IControlling
+    class MainCharacter : Character, Kernel::Interfaces::IControlling
     {
         public:
-            MainCharacter();
-            ~MainCharacter();
+            static MainCharacter& getInstance();
             
             void draw() override;
             void moveTo(Kernel::Interfaces::MovingDirection direction) override;
+            void stop() override;
 
             Kernel::Animation* animation;
+
+        private:
+            MainCharacter();
+            ~MainCharacter();
+            MainCharacter(MainCharacter const&);
     };
 }

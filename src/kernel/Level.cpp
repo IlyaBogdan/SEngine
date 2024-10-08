@@ -4,13 +4,12 @@
 using namespace Kernel;
 
 Level::Level() {
-
+    
 }
 
 void Level::run() {
-    while(this->running) {
-        this->checkScripts();
-    }
+    this->checkScripts();
+    
 }
 
 void Level::pause() {

@@ -8,7 +8,7 @@ using namespace Kernel;
 
 //GameInstance::Menu::StartMenu menu;
 GameInstance::Levels::HelloWorld helloWorld_Level;
-GameInstance::Objects::MainCharacter mainCharacter;
+GameInstance::Objects::MainCharacter& mainCharacter = GameInstance::Objects::MainCharacter::getInstance();
 
 GameEngine::GameEngine() {
     int windowWidth = 800;
@@ -45,7 +45,7 @@ void GameEngine::update() {
 }
 
 void GameEngine::render() {
-    //helloWorld_Level.run();
+    helloWorld_Level.run();
     this->window->clear();
     
     mainCharacter.draw();

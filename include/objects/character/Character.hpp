@@ -15,6 +15,8 @@ namespace GameInstance::Objects
             void setAnimation(Kernel::Animation* animation) override;
 
         protected:
+            float movingSpeed;
+            Kernel::Interfaces::Coordinate coordinate;
             Kernel::Animation* animation;
     };
 }
