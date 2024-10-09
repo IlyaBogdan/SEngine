@@ -8,6 +8,7 @@ void AttackAnimation::onFinish(std::function<void()> callback) {
 
 void GameInstance::Animations::AttackAnimation::draw() {
     if (this->animationStep >= this->maxStep) {
+        this->animationStep = 0;
         this->finishCallback();
     }
 
