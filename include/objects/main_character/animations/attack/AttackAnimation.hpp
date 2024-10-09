@@ -11,6 +11,7 @@ namespace GameInstance::Animations
             AttackAnimation() {};
             virtual ~AttackAnimation() = 0 {};
 
+            void draw() override;
             void onFinish(std::function<void()> callback);
 
         protected:

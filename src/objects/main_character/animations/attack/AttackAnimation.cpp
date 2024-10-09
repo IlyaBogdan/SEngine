@@ -5,3 +5,11 @@ using namespace GameInstance::Animations;
 void AttackAnimation::onFinish(std::function<void()> callback) {
     this->finishCallback = callback;
 }
+
+void GameInstance::Animations::AttackAnimation::draw() {
+    if (this->animationStep >= this->maxStep) {
+        this->finishCallback();
+    }
+
+    Animation::draw();
+}

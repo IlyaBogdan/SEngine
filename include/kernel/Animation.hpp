@@ -14,7 +14,7 @@ namespace Kernel
             virtual void play(Kernel::Interfaces::Coordinate coordinate);
             virtual void draw() override;
 
-            void setXrotation(int x_rotation);
+            virtual void setXrotation(int x_rotation);
             void setCoordinate(Kernel::Interfaces::Coordinate coordinate);
         
         protected:

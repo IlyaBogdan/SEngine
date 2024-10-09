@@ -15,6 +15,7 @@ namespace GameInstance::Animations
             void draw() override;
             void onFinish(std::function<void()> callback);
             void play(Kernel::Interfaces::Coordinate coordinate) override;
+            void setXrotation(int x_rotation) override;
 
         protected:
             int currentVar = 0;

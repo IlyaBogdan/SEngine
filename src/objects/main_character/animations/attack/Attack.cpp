@@ -18,12 +18,24 @@ Attack::Attack() {
 }
 
 void Attack::onFinish(std::function<void()> callback) {
-    this->finishCallback = callback;
+    this->currentAnimation->onFinish([this, callback]() {
+        this->currentVar++;
+        if (this->currentVar == this->variantsCount) {
+            this->currentVar = 0;
+        }
+        this->currentAnimation = this->variants[this->currentVar];
+
+        callback();
+    });
 }
 
 void Attack::play(Kernel::Interfaces::Coordinate coordinate) {
     this->currentAnimation->setCoordinate(coordinate);
     this->currentAnimation->play();
+}
+
+void GameInstance::Animations::Attack::setXrotation(int x_rotation) {
+    this->currentAnimation->setXrotation(x_rotation);
 }
 
 void Attack::draw() {
