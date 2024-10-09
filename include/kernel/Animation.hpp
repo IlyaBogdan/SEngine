@@ -27,7 +27,7 @@ namespace Kernel
             std::string texturePath;
             Kernel::Interfaces::Coordinate coordinate;
 
-            int Animation::setTexture(std::string texturePath);
+            int setTexture(std::string texturePath);
             virtual void onDrawCallback();
     };
 }

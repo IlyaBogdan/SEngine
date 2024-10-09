@@ -3,6 +3,7 @@
 #include "menu/start/StartMenu.hpp"
 #include "levels/HelloWorld/HelloWorld.hpp"
 #include "objects/main_character/MainCharacter.hpp"
+#include "objects/static/Bush.hpp"
 #include <iostream>
 
 using namespace Kernel;
@@ -10,6 +11,9 @@ using namespace Kernel;
 //GameInstance::Menu::StartMenu menu;
 GameInstance::Levels::HelloWorld helloWorld_Level;
 GameInstance::Objects::MainCharacter& mainCharacter = GameInstance::Objects::MainCharacter::getInstance();
+GameInstance::Objects::Bush bigBush(GameInstance::Objects::BushVariant::BIG);
+GameInstance::Objects::Bush smallBush(GameInstance::Objects::BushVariant::SMALL);
+GameInstance::Objects::Bush mediumBush(GameInstance::Objects::BushVariant::MEDIUM);
 Collider& collider = Collider::getInstance();
 
 GameEngine::GameEngine() {
@@ -52,8 +56,15 @@ void GameEngine::update() {
 
 void GameEngine::render() {
     this->window->clear();
+    bigBush.setCoordinate({ 350.f, 50.f });
+    smallBush.setCoordinate({ 600.f, 80.f });
+    mediumBush.setCoordinate({ 350.f, 80.f });
     helloWorld_Level.run();
+
     mainCharacter.draw();
+    bigBush.draw();
+    mediumBush.draw();
+    smallBush.draw();
 
     this->window->display();
 }

@@ -65,6 +65,6 @@ void Animation::setXrotation(int x_rotation) {
     this->x_rotation = x_rotation;
 }
 
-void Kernel::Animation::setCoordinate(Kernel::Interfaces::Coordinate coordinate) {
+void Animation::setCoordinate(Kernel::Interfaces::Coordinate coordinate) {
     this->coordinate = coordinate;
 }
