@@ -1,10 +1,10 @@
 #pragma once
 
-#include "kernel/GameObject.hpp"
+#include "kernel/DrawObject.hpp"
 
 namespace Kernel
 {
-    class Animation : public GameObject
+    class Animation : public DrawObject
     {
         public:
             Animation() {};
@@ -14,20 +14,14 @@ namespace Kernel
             virtual void play(Kernel::Interfaces::Coordinate coordinate);
             virtual void draw() override;
 
-            virtual void setXrotation(int x_rotation);
-            void setCoordinate(Kernel::Interfaces::Coordinate coordinate);
-        
         protected:
-            sf::Texture texture;
             sf::Clock timer;
             int spriteRenderInterval = 300;
             int animationStep = 0;
             int maxStep = 1;
-            int x_rotation = 0;
-            std::string texturePath;
-            Kernel::Interfaces::Coordinate coordinate;
+            std::string sritesFolder;
 
-            int setTexture(std::string texturePath);
+            virtual int loadTexture() override;
             virtual void onDrawCallback();
     };
 }

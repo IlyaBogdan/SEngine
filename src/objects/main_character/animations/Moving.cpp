@@ -3,7 +3,7 @@
 using namespace GameInstance::Animations;
 
 Moving::Moving() {
-    this->texturePath = "recources/assets/character/MainCharacter/animations/run";
+    this->sritesFolder = "recources/assets/character/MainCharacter/animations/run";
     this->maxStep = 5;
     this->spriteRenderInterval = 100;
 }

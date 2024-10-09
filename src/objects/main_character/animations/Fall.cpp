@@ -3,7 +3,7 @@
 using namespace GameInstance::Animations;
 
 Jump::Jump() {
-    this->texturePath = "recources/assets/character/MainCharacter/animations/jump";
+    this->sritesFolder = "recources/assets/character/MainCharacter/animations/jump";
     this->maxStep = 3;
     this->spriteRenderInterval = 100;
 }
