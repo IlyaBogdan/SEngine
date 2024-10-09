@@ -16,6 +16,7 @@ GameEngine::GameEngine() {
     
     this->window = new sf::RenderWindow(sf::VideoMode::getDesktopMode(), "GameEngine 1", sf::Style::Fullscreen);
     this->window->setFramerateLimit(120);
+    this->window->setKeyRepeatEnabled(true);
 }
 
 GameEngine::~GameEngine() {
