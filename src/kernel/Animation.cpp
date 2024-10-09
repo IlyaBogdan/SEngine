@@ -46,6 +46,10 @@ void Animation::draw() {
         game.window->draw(sprite);
     }
 
+    this->onDrawCallback();
+}
+
+void Animation::onDrawCallback() {
     int elapsedTime = this->timer.getElapsedTime().asMilliseconds();
     if (elapsedTime >= this->spriteRenderInterval) {
         this->animationStep++;
