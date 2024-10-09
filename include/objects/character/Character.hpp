@@ -3,10 +3,11 @@
 #include "kernel/GameObject.hpp"
 #include "kernel/interfaces/IMoving.hpp"
 #include "kernel/interfaces/IAnimated.hpp"
+#include "kernel/interfaces/IAttacker.hpp"
 
 namespace GameInstance::Objects
 {
-    class Character : public Kernel::GameObject, Kernel::Interfaces::IAnimated, Kernel::Interfaces::IMoving
+    class Character : public Kernel::GameObject, Kernel::Interfaces::IAnimated, Kernel::Interfaces::IMoving, Kernel::Interfaces::IAttacker
     {
         public:
             Character() {};

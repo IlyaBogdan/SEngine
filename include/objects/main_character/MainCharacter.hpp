@@ -14,6 +14,7 @@ namespace GameInstance::Objects
             void draw() override;
             void moveTo(Kernel::Interfaces::MovingDirection direction) override;
             void stop() override;
+            void attack() override;
 
             Kernel::Animation* animation;
 

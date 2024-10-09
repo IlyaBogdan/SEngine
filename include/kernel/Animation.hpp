@@ -10,11 +10,12 @@ namespace Kernel
             Animation() {};
             virtual ~Animation() = 0 {};
 
-            void play();
-            void play(Kernel::Interfaces::Coordinate coordinate);
-            void draw() override;
+            virtual void play();
+            virtual void play(Kernel::Interfaces::Coordinate coordinate);
+            virtual void draw() override;
 
             void setXrotation(int x_rotation);
+            void setCoordinate(Kernel::Interfaces::Coordinate coordinate);
         
         protected:
             sf::Texture texture;

@@ -19,6 +19,10 @@ void MainCharacterController::intercept() {
         { sf::Keyboard::D, [this]() {
             this->mainCharacter->moveTo({ Kernel::Interfaces::XDirection::RIGHT, Kernel::Interfaces::YDirection::STAND_Y });
         }},
+        { sf::Keyboard::K, [this]() {
+            this->mainCharacter->attack();
+        }},
+
         { sf::Keyboard::Escape, [this]() {
             Kernel::GameEngine& game = Kernel::GameEngine::getInstance();
             game.window->close();
