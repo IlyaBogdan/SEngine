@@ -57,6 +57,7 @@ void MainCharacter::attack() {
         this->animation = &attackAnimation;
         attackAnimation.onFinish([this]() {
             this->stop();
+            
         });
     }
 }

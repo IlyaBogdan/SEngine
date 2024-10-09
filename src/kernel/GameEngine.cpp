@@ -1,4 +1,5 @@
 #include "kernel/GameEngine.hpp"
+#include "kernel/Collider.hpp"
 #include "menu/start/StartMenu.hpp"
 #include "levels/HelloWorld/HelloWorld.hpp"
 #include "objects/main_character/MainCharacter.hpp"
@@ -9,13 +10,14 @@ using namespace Kernel;
 //GameInstance::Menu::StartMenu menu;
 GameInstance::Levels::HelloWorld helloWorld_Level;
 GameInstance::Objects::MainCharacter& mainCharacter = GameInstance::Objects::MainCharacter::getInstance();
+Collider& collider = Collider::getInstance();
 
 GameEngine::GameEngine() {
     int windowWidth = 800;
     int windowHeight = 640;
     
-    //this->window = new sf::RenderWindow(sf::VideoMode::getDesktopMode(), "GameEngine 1", sf::Style::Fullscreen);
-    this->window = new sf::RenderWindow(sf::VideoMode(windowWidth, windowHeight), "GameEngine 1", sf::Style::Close);
+    this->window = new sf::RenderWindow(sf::VideoMode::getDesktopMode(), "GameEngine 1", sf::Style::Fullscreen);
+    //this->window = new sf::RenderWindow(sf::VideoMode(windowWidth, windowHeight), "GameEngine 1", sf::Style::Close);
     this->window->setFramerateLimit(120);
 }
 
@@ -43,6 +45,8 @@ GameEngine& GameEngine::getInstance() {
 }
 
 void GameEngine::update() {
+    collider.flush();
+    collider.checkCollisions();
     this->poolEvents();
 }
 
