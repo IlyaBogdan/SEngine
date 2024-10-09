@@ -10,5 +10,7 @@ namespace GameInstance::Objects
         public:
             StaticObject() {};
             virtual ~StaticObject() = 0 {};
+
+            virtual void handleCollisions(sf::Sprite* view) override;
     };
 }

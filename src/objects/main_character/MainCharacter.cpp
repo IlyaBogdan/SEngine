@@ -15,6 +15,7 @@ GameInstance::Animations::Fall fallAnimation;
 using namespace GameInstance::Objects;
 
 MainCharacter::MainCharacter() {
+    this->colliding = true;
     this->animation = &standByAnimation;
     this->coordinate = Kernel::Interfaces::Coordinate{50.f, 100.f};
     this->movingSpeed = 1.5f;
@@ -39,6 +40,7 @@ void MainCharacter::draw() {
         this->coordinate.x += x_difference;
     }
 
+    this->animation->setOwner(this);
     this->animation->play(this->coordinate);
 }
 

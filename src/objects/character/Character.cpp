@@ -5,3 +5,7 @@ using namespace GameInstance::Objects;
 void Character::setAnimation(Kernel::Animation *animation) {
     this->animation = animation;
 }
+
+void GameInstance::Objects::Character::handleCollisions(sf::Sprite *view) {
+    
+}

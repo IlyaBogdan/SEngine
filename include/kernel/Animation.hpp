@@ -13,6 +13,8 @@ namespace Kernel
             virtual void play();
             virtual void play(Kernel::Interfaces::Coordinate coordinate);
             virtual void draw() override;
+            virtual void handleCollisions(sf::Sprite* view) override;
+            void setOwner(DrawObject* owner);
 
         protected:
             sf::Clock timer;
@@ -20,6 +22,7 @@ namespace Kernel
             int animationStep = 0;
             int maxStep = 1;
             std::string sritesFolder;
+            DrawObject* owner;
 
             virtual int loadTexture() override;
             virtual void onDrawCallback();

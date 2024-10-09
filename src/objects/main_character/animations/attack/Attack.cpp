@@ -30,6 +30,7 @@ void Attack::onFinish(std::function<void()> callback) {
 }
 
 void Attack::play(Kernel::Interfaces::Coordinate coordinate) {
+    this->currentAnimation->setOwner(this->owner);
     this->currentAnimation->setCoordinate(coordinate);
     this->currentAnimation->play();
 }

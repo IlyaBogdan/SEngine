@@ -1,6 +1,6 @@
 #pragma once
 
-#include "kernel/GameObject.hpp"
+#include "kernel/DrawObject.hpp"
 #include "kernel/interfaces/IMoving.hpp"
 #include "kernel/interfaces/IAnimated.hpp"
 #include "kernel/interfaces/IAttacker.hpp"
@@ -8,7 +8,7 @@
 
 namespace GameInstance::Objects
 {
-    class Character : public Kernel::GameObject,
+    class Character : public Kernel::DrawObject,
     Kernel::Interfaces::IAnimated, Kernel::Interfaces::IMoving, Kernel::Interfaces::IAttacker,
     Kernel::Interfaces::IJumped
     {
@@ -17,6 +17,7 @@ namespace GameInstance::Objects
             virtual ~Character() {};
             
             void setAnimation(Kernel::Animation* animation) override;
+            virtual void handleCollisions(sf::Sprite* view) override;
 
         protected:
             bool moving;
