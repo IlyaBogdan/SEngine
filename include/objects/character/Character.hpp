@@ -4,10 +4,13 @@
 #include "kernel/interfaces/IMoving.hpp"
 #include "kernel/interfaces/IAnimated.hpp"
 #include "kernel/interfaces/IAttacker.hpp"
+#include "kernel/interfaces/IJumped.hpp"
 
 namespace GameInstance::Objects
 {
-    class Character : public Kernel::GameObject, Kernel::Interfaces::IAnimated, Kernel::Interfaces::IMoving, Kernel::Interfaces::IAttacker
+    class Character : public Kernel::GameObject,
+    Kernel::Interfaces::IAnimated, Kernel::Interfaces::IMoving, Kernel::Interfaces::IAttacker,
+    Kernel::Interfaces::IJumped
     {
         public:
             Character() {};

@@ -2,11 +2,15 @@
 #include "objects/main_character/animations/StandBy.hpp"
 #include "objects/main_character/animations/Moving.hpp"
 #include "objects/main_character/animations/attack/Attack.hpp"
+#include "objects/main_character/animations/Jump.hpp"
+#include "objects/main_character/animations/Fall.hpp"
 #include "kernel/interfaces/IDrawable.hpp"
 
 GameInstance::Animations::StandBy standByAnimation;
 GameInstance::Animations::Moving movingAnimation;
 GameInstance::Animations::Attack attackAnimation;
+GameInstance::Animations::Jump jumpAnimation;
+GameInstance::Animations::Fall fallAnimation;
 
 using namespace GameInstance::Objects;
 
@@ -55,4 +59,8 @@ void MainCharacter::attack() {
             this->stop();
         });
     }
+}
+
+void MainCharacter::jump() {
+    this->animation = &jumpAnimation;
 }

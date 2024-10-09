@@ -22,6 +22,9 @@ void MainCharacterController::intercept() {
         { sf::Keyboard::K, [this]() {
             this->mainCharacter->attack();
         }},
+        { sf::Keyboard::Space, [this]() {
+            this->mainCharacter->jump();
+        }},
 
         { sf::Keyboard::Escape, [this]() {
             Kernel::GameEngine& game = Kernel::GameEngine::getInstance();
