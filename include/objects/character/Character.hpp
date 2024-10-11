@@ -22,6 +22,7 @@ namespace GameInstance::Objects
 
         protected:
             bool moving;
+            bool onGround;
             float movingSpeed;
             Kernel::Interfaces::MovingDirection movingDirection;
             Kernel::Interfaces::Coordinate coordinate;
