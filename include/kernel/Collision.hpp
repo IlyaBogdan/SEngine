@@ -1,6 +1,6 @@
 #pragma once
 
-#include "kernel/interfaces/IDrawable.hpp"
+#include "kernel/DrawObject.hpp"
 
 namespace Kernel
 {
@@ -11,13 +11,13 @@ namespace Kernel
     {
         public:
             Collision() {};
-            Collision(Kernel::Interfaces::IDrawable* objectSourcePtr, Kernel::Interfaces::IDrawable* objectDstPtr);
+            Collision(Kernel::DrawObject* objectSourcePtr, Kernel::DrawObject* objectDstPtr);
             ~Collision() {};
 
             virtual void proccess();
 
-            Kernel::Interfaces::IDrawable* objectSourcePtr;
-            Kernel::Interfaces::IDrawable* objectDstPtr;
+            Kernel::DrawObject* objectSourcePtr;
+            Kernel::DrawObject* objectDstPtr;
 
             bool operator == (const Collision& other) const {
                 return (other.objectDstPtr == this->objectDstPtr && other.objectSourcePtr == this->objectSourcePtr)

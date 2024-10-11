@@ -18,6 +18,7 @@ namespace GameInstance::Objects
             
             void setAnimation(Kernel::Animation* animation) override;
             virtual void handleCollisions(sf::Sprite* view) override;
+            virtual void onCollide() override;
 
         protected:
             bool moving;

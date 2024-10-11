@@ -5,6 +5,7 @@
 #include "objects/main_character/animations/Jump.hpp"
 #include "objects/main_character/animations/Fall.hpp"
 #include "kernel/interfaces/IDrawable.hpp"
+#include "kernel/Collider.hpp"
 
 GameInstance::Animations::StandBy standByAnimation;
 GameInstance::Animations::Moving movingAnimation;
@@ -17,7 +18,7 @@ using namespace GameInstance::Objects;
 MainCharacter::MainCharacter() {
     this->colliding = true;
     this->animation = &standByAnimation;
-    this->coordinate = Kernel::Interfaces::Coordinate{50.f, 50.f};
+    this->coordinate = Kernel::Interfaces::Coordinate{800.f, 50.f};
     this->movingSpeed = 1.5f;
 }
 
@@ -37,6 +38,7 @@ void MainCharacter::draw() {
     if (this->moving) {
         this->animation = &movingAnimation;
         float x_difference = this->movingDirection.x == Kernel::Interfaces::XDirection::LEFT ? -this->movingSpeed : this->movingSpeed;
+
         this->coordinate.x += x_difference;
     }
 
@@ -59,7 +61,7 @@ void MainCharacter::attack() {
         this->animation = &attackAnimation;
         attackAnimation.onFinish([this]() {
             this->stop();
-        });
+        });        
     }
 }
 

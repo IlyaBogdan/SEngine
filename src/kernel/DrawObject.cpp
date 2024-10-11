@@ -1,6 +1,7 @@
+#include <iostream>
 #include "kernel/DrawObject.hpp"
 #include "kernel/GameEngine.hpp"
-#include <iostream>
+#include "kernel/consts.h"
 
 using namespace Kernel;
 
@@ -8,12 +9,45 @@ DrawObject::DrawObject() {
     this->colliding = false;
 }
 
+sf::IntRect findOpaqueBounds(const sf::Image& image) {
+    int left = image.getSize().x;
+    int right = 0;
+    int top = image.getSize().y;
+    int bottom = 0;
+
+    for (unsigned int y = 0; y < image.getSize().y; ++y) {
+        for (unsigned int x = 0; x < image.getSize().x; ++x) {
+            sf::Color pixel = image.getPixel(x, y);
+
+            if (pixel.a != 0) {
+                left = std::min(left, static_cast<int>(x));
+                right = std::max(right, static_cast<int>(x));
+                top = std::min(top, static_cast<int>(y));
+                bottom = std::max(bottom, static_cast<int>(y));
+            }
+        }
+    }
+
+    if (left > right || top > bottom) {
+        return sf::IntRect(0, 0, 0, 0);
+    }
+
+    return sf::IntRect(left, top, right - left + 1, bottom - top + 1);
+}
+
 int DrawObject::loadTexture() {
-    if (!this->texture.loadFromFile(texturePath)) {
+    sf::Image image;
+    if (!image.loadFromFile(texturePath)) {
         std::cerr << "Error: Could not load the texture!" << std::endl;
         return 0;
     }
 
+    sf::IntRect bounds = findOpaqueBounds(image);
+    if (bounds.width <= 0 && bounds.height <= 0) {
+        return 0;
+    }
+
+    this->texture.loadFromImage(image, bounds);
     this->texture.setSmooth(true);
     this->texture.setRepeated(true);
 
@@ -32,18 +66,11 @@ void DrawObject::draw() {
         float scale_x = this->x_rotation == 180 ? -1.f : 1.f;
         float scale_y = 1.f;
 
-        sprite->setScale(sf::Vector2f(scale_x, scale_y)); // absolute scale factor
-        sprite->scale(sf::Vector2f(2.f, 2.f)); // absolute scale factor
+        sf::FloatRect spriteBounds = sprite->getLocalBounds();
+        sprite->setOrigin(spriteBounds.width / 2.f, spriteBounds.height / 2.f);
 
-        // borders for debug
-        sf::RectangleShape border;
-        border.setSize(sf::Vector2f(sprite->getGlobalBounds().width, sprite->getGlobalBounds().height));
-        float border_x = this->coordinate.x - (sprite->getGlobalBounds().width / 2);
-        float bordrer_y = this->coordinate.y - (sprite->getGlobalBounds().height / 2);
-        border.setPosition({ border_x, bordrer_y });
-        border.setFillColor(sf::Color::Transparent);
-        border.setOutlineThickness(1.f);
-        border.setOutlineColor(sf::Color::Red);
+        sprite->setScale(sf::Vector2f(scale_x, scale_y)); // absolute scale factor
+        sprite->scale(sf::Vector2f(1.5f, 1.5f)); // absolute scale factor        
 
         if (this->colliding) {
             this->handleCollisions(sprite);
@@ -51,7 +78,19 @@ void DrawObject::draw() {
 
         Kernel::GameEngine& game = Kernel::GameEngine::getInstance();
         game.window->draw(*sprite);
-        game.window->draw(border);
+
+        if (DEBUG) {
+            // borders for debug
+            sf::RectangleShape border;
+            border.setSize(sf::Vector2f(sprite->getGlobalBounds().width, sprite->getGlobalBounds().height));
+            float border_x = this->coordinate.x;
+            float bordrer_y = this->coordinate.y;
+            border.setPosition({ border_x, bordrer_y });
+            border.setFillColor(sf::Color::Transparent);
+            border.setOutlineThickness(1.f);
+            border.setOutlineColor(sf::Color::Red);
+            game.window->draw(border);
+        }
     }
 }
 

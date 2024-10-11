@@ -14,7 +14,6 @@ void Collider::checkCollisions() {
         for (RegistredCollideObject dstCollideObject : this->objects) {
             if (sourceCollideObject != dstCollideObject) {
                 if (sourceCollideObject.view->getGlobalBounds().intersects(dstCollideObject.view->getGlobalBounds())) {
-                    // Обработка коллизии между sprites[i] и sprites[j]
                     std::cout << "Collision detected between sprite " << sourceCollideObject.source << " and sprite " << dstCollideObject.source << std::endl;
                     Collision* collision = new Collision(sourceCollideObject.source, dstCollideObject.source);
 
@@ -29,12 +28,20 @@ void Collider::checkCollisions() {
 
 bool Collider::collisionRegistred(Collision* collision) {
     for (Collision* registredCollision : this->collisions) {
-        if (collision == registredCollision) {
+        if (&collision == &registredCollision) {
             return true;
         }
     }
 
     return false;
+}
+
+void Collider::process() {
+    for (Collision* collision : this->collisions) {
+        collision->proccess();
+    }
+
+    this->flush();
 }
 
 void Collider::flush() {
@@ -49,19 +56,28 @@ void Collider::flush() {
     this->collisions.clear();    
 }
 
-void Collider::registerObject(Kernel::Interfaces::IDrawable* objectPtr, sf::Sprite* view) {
-    RegistredCollideObject collideObject { objectPtr, view };
-    this->objects.push_back(collideObject);
-}
-
-std::vector<Collision* > Collider::getCollisionsFor(Kernel::Interfaces::IDrawable* sourceObject) {
-    std::vector<Collision* > objectCollisions;
-
-    for (Collision* collision : this->collisions) {
-        if (collision->objectSourcePtr == sourceObject) {
-            objectCollisions.push_back(collision);
+void Collider::registerObject(Kernel::DrawObject* objectPtr, sf::Sprite* view) {
+    RegistredCollideObject newCollideObject { objectPtr, view };
+    for (RegistredCollideObject collideObject : this->objects) {
+        if (collideObject == newCollideObject) {
+            return;
         }
     }
+
+    this->objects.push_back(newCollideObject);
+}
+
+std::vector<Collision* > Collider::getCollisionsFor(Kernel::DrawObject* sourceObject) {
+    std::vector<Collision* > objectCollisions;
+
+    if (this->collisions.size()) {
+        for (Collision* collision : this->collisions) {
+            if (&collision->objectSourcePtr == &sourceObject || &collision->objectDstPtr == &sourceObject) {
+                objectCollisions.push_back(collision);
+            }
+        }
+    }
+    
 
     return objectCollisions;
 }

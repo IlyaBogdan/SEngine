@@ -2,12 +2,13 @@
 
 using namespace Kernel;
 
-Collision::Collision(Kernel::Interfaces::IDrawable* objectSourcePtr, Kernel::Interfaces::IDrawable* objectDstPtr) {
+Collision::Collision(Kernel::DrawObject* objectSourcePtr, Kernel::DrawObject* objectDstPtr) {
     this->objectDstPtr = objectDstPtr;
     this->objectSourcePtr = objectSourcePtr;
 }
 
 void Collision::proccess() {
-    
+    this->objectDstPtr->onCollide();
+    this->objectSourcePtr->onCollide();
 }
 

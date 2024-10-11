@@ -12,6 +12,7 @@ using namespace Kernel;
 GameInstance::Levels::HelloWorld helloWorld_Level;
 GameInstance::Objects::MainCharacter& mainCharacter = GameInstance::Objects::MainCharacter::getInstance();
 GameInstance::Objects::Bush bigBush(GameInstance::Objects::BushVariant::BIG);
+GameInstance::Objects::Bush bigBush2(GameInstance::Objects::BushVariant::BIG);
 GameInstance::Objects::Bush smallBush(GameInstance::Objects::BushVariant::SMALL);
 GameInstance::Objects::Bush mediumBush(GameInstance::Objects::BushVariant::MEDIUM);
 Collider& collider = Collider::getInstance();
@@ -20,8 +21,8 @@ GameEngine::GameEngine() {
     int windowWidth = 800;
     int windowHeight = 640;
     
-    //this->window = new sf::RenderWindow(sf::VideoMode::getDesktopMode(), "GameEngine 1", sf::Style::Fullscreen);
-    this->window = new sf::RenderWindow(sf::VideoMode(windowWidth, windowHeight), "GameEngine 1", sf::Style::Close);
+    this->window = new sf::RenderWindow(sf::VideoMode::getDesktopMode(), "GameEngine 1", sf::Style::Fullscreen);
+    //this->window = new sf::RenderWindow(sf::VideoMode(windowWidth, windowHeight), "GameEngine 1", sf::Style::Close);
     this->window->setFramerateLimit(120);
 }
 
@@ -49,19 +50,22 @@ GameEngine& GameEngine::getInstance() {
 }
 
 void GameEngine::update() {
-    collider.flush();
+    collider.process();
     this->poolEvents();
 }
 
 void GameEngine::render() {
     this->window->clear();
-    bigBush.setCoordinate({ 350.f, 50.f });
+    bigBush.setCoordinate({ 450.f, 50.f });
+    bigBush2.setCoordinate({ 0.f, 50.f });
     smallBush.setCoordinate({ 600.f, 50.f });
-    mediumBush.setCoordinate({ 350.f, 50.f });
+    mediumBush.setCoordinate({ 400.f, 50.f });
+
     helloWorld_Level.run();
 
     mainCharacter.draw();
     bigBush.draw();
+    bigBush2.draw();
     mediumBush.draw();
     smallBush.draw();
 

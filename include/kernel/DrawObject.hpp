@@ -15,6 +15,7 @@ namespace Kernel
             virtual void draw() override;
             virtual void setCoordinate(Kernel::Interfaces::Coordinate coordinate);
             virtual void handleCollisions(sf::Sprite* view) = 0;
+            virtual void onCollide() {};
 
         protected:
             std::string texturePath;

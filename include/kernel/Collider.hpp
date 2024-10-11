@@ -3,13 +3,13 @@
 #include <unordered_map>
 #include <functional>
 #include "SFML/Graphics.hpp"
-#include "kernel/interfaces/IDrawable.hpp"
+#include "kernel/DrawObject.hpp"
 #include "kernel/Collision.hpp"
 
 namespace Kernel
 {
     typedef struct {
-        Kernel::Interfaces::IDrawable* source;
+        Kernel::DrawObject* source;
         sf::Sprite* view;
     } RegistredCollideObject;
 
@@ -30,9 +30,10 @@ namespace Kernel
             static Collider& getInstance();
 
             void checkCollisions();
+            void process();
             void flush();
-            void registerObject(Kernel::Interfaces::IDrawable* object, sf::Sprite* view);
-            std::vector<Collision* > getCollisionsFor(Kernel::Interfaces::IDrawable* sourceObject);
+            void registerObject(Kernel::DrawObject* object, sf::Sprite* view);
+            std::vector<Collision* > getCollisionsFor(Kernel::DrawObject* sourceObject);
 
         private:
             Collider() {};
