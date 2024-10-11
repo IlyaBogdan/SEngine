@@ -12,12 +12,17 @@ namespace Kernel
         public:
             Collision() {};
             Collision(Kernel::Interfaces::IDrawable* objectSourcePtr, Kernel::Interfaces::IDrawable* objectDstPtr);
-            virtual ~Collision() = 0 {};
+            ~Collision() {};
 
-            virtual void proccess() = 0;
+            virtual void proccess();
 
             Kernel::Interfaces::IDrawable* objectSourcePtr;
             Kernel::Interfaces::IDrawable* objectDstPtr;
+
+            bool operator == (const Collision& other) const {
+                return (other.objectDstPtr == this->objectDstPtr && other.objectSourcePtr == this->objectSourcePtr)
+                    || (other.objectSourcePtr == this->objectDstPtr && other.objectDstPtr == this->objectSourcePtr);
+            }
     };
 }
 

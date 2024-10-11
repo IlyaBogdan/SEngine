@@ -13,6 +13,14 @@ namespace Kernel
         sf::Sprite* view;
     } RegistredCollideObject;
 
+    inline bool operator ==(const RegistredCollideObject& rhs, const RegistredCollideObject& lhs) {
+        return (rhs.source == lhs.source) && (rhs.view == lhs.view);
+    }
+
+    inline bool operator !=(const RegistredCollideObject& rhs, const RegistredCollideObject& lhs) {
+        return (rhs.source != lhs.source) || (rhs.view != lhs.view);
+    }
+
     /**
      * @brief Class for checking collision between objects
      */
@@ -25,10 +33,12 @@ namespace Kernel
             void flush();
             void registerObject(Kernel::Interfaces::IDrawable* object, sf::Sprite* view);
             std::vector<Collision* > getCollisionsFor(Kernel::Interfaces::IDrawable* sourceObject);
+
         private:
             Collider() {};
             ~Collider() {};
             Collider(Collider const&);
+            bool collisionRegistred(Collision* collision);
 
             std::vector<RegistredCollideObject > objects; 
             std::vector<Collision* > collisions;

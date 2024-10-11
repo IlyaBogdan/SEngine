@@ -17,7 +17,7 @@ using namespace GameInstance::Objects;
 MainCharacter::MainCharacter() {
     this->colliding = true;
     this->animation = &standByAnimation;
-    this->coordinate = Kernel::Interfaces::Coordinate{50.f, 100.f};
+    this->coordinate = Kernel::Interfaces::Coordinate{50.f, 50.f};
     this->movingSpeed = 1.5f;
 }
 
@@ -59,7 +59,6 @@ void MainCharacter::attack() {
         this->animation = &attackAnimation;
         attackAnimation.onFinish([this]() {
             this->stop();
-            
         });
     }
 }

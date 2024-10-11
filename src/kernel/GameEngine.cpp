@@ -20,8 +20,8 @@ GameEngine::GameEngine() {
     int windowWidth = 800;
     int windowHeight = 640;
     
-    this->window = new sf::RenderWindow(sf::VideoMode::getDesktopMode(), "GameEngine 1", sf::Style::Fullscreen);
-    //this->window = new sf::RenderWindow(sf::VideoMode(windowWidth, windowHeight), "GameEngine 1", sf::Style::Close);
+    //this->window = new sf::RenderWindow(sf::VideoMode::getDesktopMode(), "GameEngine 1", sf::Style::Fullscreen);
+    this->window = new sf::RenderWindow(sf::VideoMode(windowWidth, windowHeight), "GameEngine 1", sf::Style::Close);
     this->window->setFramerateLimit(120);
 }
 
@@ -50,15 +50,14 @@ GameEngine& GameEngine::getInstance() {
 
 void GameEngine::update() {
     collider.flush();
-    collider.checkCollisions();
     this->poolEvents();
 }
 
 void GameEngine::render() {
     this->window->clear();
     bigBush.setCoordinate({ 350.f, 50.f });
-    smallBush.setCoordinate({ 600.f, 80.f });
-    mediumBush.setCoordinate({ 350.f, 80.f });
+    smallBush.setCoordinate({ 600.f, 50.f });
+    mediumBush.setCoordinate({ 350.f, 50.f });
     helloWorld_Level.run();
 
     mainCharacter.draw();
@@ -66,6 +65,7 @@ void GameEngine::render() {
     mediumBush.draw();
     smallBush.draw();
 
+    collider.checkCollisions();
     this->window->display();
 }
 

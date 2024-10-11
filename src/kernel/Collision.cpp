@@ -7,3 +7,7 @@ Collision::Collision(Kernel::Interfaces::IDrawable* objectSourcePtr, Kernel::Int
     this->objectSourcePtr = objectSourcePtr;
 }
 
+void Collision::proccess() {
+    
+}
+
