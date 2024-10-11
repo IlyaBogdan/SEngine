@@ -1,6 +1,7 @@
 #pragma once
 
 #include <vector>
+#include "kernel/DrawObject.hpp"
 #include "kernel/Script.hpp"
 
 namespace Kernel
@@ -8,7 +9,7 @@ namespace Kernel
     class Level
     {
         public:
-            Level();
+            Level() {};
             virtual ~Level() = 0 {};
             
             virtual void run();
@@ -17,8 +18,10 @@ namespace Kernel
 
         protected:
             bool running = true;
+            std::vector<DrawObject* > objects;
             std::vector<Script* > scripts;
 
             void checkScripts();
+            void drawObjects();
     };
 }

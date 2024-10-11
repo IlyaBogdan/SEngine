@@ -1,15 +1,10 @@
 #include "kernel/Level.hpp"
-#include <algorithm>
 
 using namespace Kernel;
 
-Level::Level() {
-    
-}
-
 void Level::run() {
+    this->drawObjects();
     this->checkScripts();
-    
 }
 
 void Level::pause() {
@@ -17,14 +12,18 @@ void Level::pause() {
 }
 
 void Level::checkScripts() {
-    std::for_each(this->scripts.begin(), this->scripts.end(),
-        [](Script* script) {
-            if (script->checkPoint()) {
-                script->execute();
-                delete script;
-            }
+    for (Script* script : this->scripts) {
+        if (script->checkPoint()) {
+            script->execute();
+            delete script;
         }
-    );
+    }
+}
+
+void Level::drawObjects() {
+    for (DrawObject* object : this->objects) {
+        object->draw();
+    }
 }
 
 void Level::exit() {

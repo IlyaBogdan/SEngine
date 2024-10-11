@@ -6,7 +6,7 @@
 
 namespace GameInstance::Objects
 {
-    class MainCharacter : Character, Kernel::Interfaces::IControlling
+    class MainCharacter : public Character, Kernel::Interfaces::IControlling
     {
         public:
             static MainCharacter& getInstance();

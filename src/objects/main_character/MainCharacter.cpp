@@ -4,8 +4,6 @@
 #include "objects/main_character/animations/attack/Attack.hpp"
 #include "objects/main_character/animations/Jump.hpp"
 #include "objects/main_character/animations/Fall.hpp"
-#include "kernel/interfaces/IDrawable.hpp"
-#include "kernel/Collider.hpp"
 
 GameInstance::Animations::StandBy standByAnimation;
 GameInstance::Animations::Moving movingAnimation;

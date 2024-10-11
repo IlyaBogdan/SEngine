@@ -9,6 +9,7 @@ namespace GameInstance::Levels
     {
         public:
             HelloWorld();
+            ~HelloWorld();
 
             void run() override;
 

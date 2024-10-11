@@ -3,18 +3,14 @@
 #include "menu/start/StartMenu.hpp"
 #include "levels/HelloWorld/HelloWorld.hpp"
 #include "objects/main_character/MainCharacter.hpp"
-#include "objects/static/Bush.hpp"
+
 #include <iostream>
 
 using namespace Kernel;
 
 //GameInstance::Menu::StartMenu menu;
 GameInstance::Levels::HelloWorld helloWorld_Level;
-GameInstance::Objects::MainCharacter& mainCharacter = GameInstance::Objects::MainCharacter::getInstance();
-GameInstance::Objects::Bush bigBush(GameInstance::Objects::BushVariant::BIG);
-GameInstance::Objects::Bush bigBush2(GameInstance::Objects::BushVariant::BIG);
-GameInstance::Objects::Bush smallBush(GameInstance::Objects::BushVariant::SMALL);
-GameInstance::Objects::Bush mediumBush(GameInstance::Objects::BushVariant::MEDIUM);
+
 Collider& collider = Collider::getInstance();
 
 GameEngine::GameEngine() {
@@ -56,19 +52,7 @@ void GameEngine::update() {
 
 void GameEngine::render() {
     this->window->clear();
-    bigBush.setCoordinate({ 450.f, 50.f });
-    bigBush2.setCoordinate({ 0.f, 50.f });
-    smallBush.setCoordinate({ 600.f, 50.f });
-    mediumBush.setCoordinate({ 400.f, 50.f });
-
     helloWorld_Level.run();
-
-    mainCharacter.draw();
-    bigBush.draw();
-    bigBush2.draw();
-    mediumBush.draw();
-    smallBush.draw();
-
     collider.checkCollisions();
     this->window->display();
 }
