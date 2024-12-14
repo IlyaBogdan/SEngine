@@ -8,12 +8,13 @@ namespace Kernel
     class Engine
     {
     public:
-        Engine() {}
+        Engine();
         ~Engine();
 
         int mainLoop();
 
     private:
         Engine(const Engine&);
+        bool running;
     };
 }
